@@ -1,0 +1,11 @@
+export const environment = {
+  production: true,
+
+  AUTENTICACION_MID_SERVICE:
+    "https://autenticacion.portaloas.udistrital.edu.co/apioas/autenticacion_mid/v1/",
+  PARAMETROS_SERVICE:
+    "https://autenticacion.portaloas.udistrital.edu.co/apioas/parametros/v1/",
+  TERCEROS_SERVICE:
+    "https://autenticacion.portaloas.udistrital.edu.co/apioas/terceros_crud/v1/",
+
+};
