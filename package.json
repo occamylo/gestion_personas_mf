@@ -1,6 +1,7 @@
 {
   "name": "agora-gestion-personas-mf",
   "version": "0.0.0",
+  "packageManager": "pnpm@12.6.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4203",
