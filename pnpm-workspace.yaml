@@ -1,0 +1,18 @@
+packages:
+  - "."
+
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  unrs-resolver: true
+
+minimumReleaseAge: 0
+overrides:
+  ajv: "^8.18.0"
+  esbuild: "^0.25.0"
+  picomatch: "^4.0.4"
+  rollup: "^4.60.0"
+  serialize-javascript: "^7.0.5"
+  webpack: "^5.104.1"
