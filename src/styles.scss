@@ -1,12 +1,29 @@
 /* Estilos globales de agora-gestion-personas-mf */
 @use '@angular/material' as mat;
 
+:root {
+  --agora-primary: #69101b;
+  --agora-primary-dark: #47000b;
+  --agora-background: #fff8f7;
+  --agora-surface: #ffffff;
+  --agora-border: #fce2e3;
+  --agora-text: #251819;
+  --agora-text-muted: #665252;
+}
+
 html,
 body {
   height: 100%;
+  background: var(--agora-background);
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+agora-gestion-personas-mf {
+  display: block;
+  min-height: 100vh;
+  background: var(--agora-background);
 }

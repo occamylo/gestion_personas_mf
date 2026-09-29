@@ -1,0 +1,26 @@
+<div class="contenedor-tarjeta">
+  <mat-card class="tarjeta">
+    <mat-card-header class="encabezado">
+      <div class="encabezado__contenido">
+        @if (icon) {
+          <div class="icono" aria-hidden="true">
+            <mat-icon>{{ icon }}</mat-icon>
+          </div>
+        }
+        <div class="encabezado__texto">
+          <h1 class="titulo">
+            {{ title }}
+          </h1>
+          @if (description) {
+            <p class="metadato">{{ description }}</p>
+          }
+        </div>
+      </div>
+
+    </mat-card-header>
+
+    <mat-card-content class="contenido">
+      <ng-container *ngTemplateOutlet="contenido"></ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>

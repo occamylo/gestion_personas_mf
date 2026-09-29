@@ -1,4 +1,19 @@
-<section class="registro-juridica">
-  <h1>{{ titulo }}</h1>
-  <p>En esta ruta estará el formulario de registro de persona jurídica.</p>
-</section>
+<plantilla-pagina-contenedora
+  [icon]="'corporate_fare'"
+  [title]="'Registro Único de Persona Jurídica'"
+  [breadcrumb]="'<p>Registro > <b>Persona Jurídica</b></p>'"
+  [contenido]="contenidoDePlantilla"
+></plantilla-pagina-contenedora>
+
+<ng-template #contenidoDePlantilla>
+  <plantilla-tarjeta-contenedora
+    [icon]="'account_balance'"
+    [title]="'1. Información Financiera Corporativa y Capital Social'"
+    [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
+    [contenido]="contenidoTarjeta"
+  ></plantilla-tarjeta-contenedora>
+</ng-template>
+
+<ng-template #contenidoTarjeta>
+  <p>Aquí irá la información de la tarjeta.</p>
+</ng-template>
