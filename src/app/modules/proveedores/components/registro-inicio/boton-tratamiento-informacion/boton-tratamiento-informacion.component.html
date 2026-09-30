@@ -1,0 +1,18 @@
+<button type="button" class="rp-seguridad" (click)="solicitarConsentimiento.emit()">
+  <span class="rp-seguridad-bloque">
+    <span class="rp-seguridad-icono">
+      <mat-icon class="rp-ico-seguridad">security</mat-icon>
+    </span>
+    <span class="rp-seguridad-texto">
+      <span class="rp-seguridad-titulo">Tratamiento de Información Protegida</span>
+      <span class="rp-seguridad-descripcion">
+        Al continuar, se aplicarán los protocolos de seguridad de la información y la Ley
+        1581 de 2012 de la Universidad Distrital.
+      </span>
+    </span>
+  </span>
+  <span class="rp-seguridad-enlace">
+    <span>{{ consentimientoAceptado ? "Consentimiento aceptado" : "Aceptar consentimiento" }}</span>
+    <mat-icon class="rp-ico-seguridad-enlace">chevron_right</mat-icon>
+  </span>
+</button>
