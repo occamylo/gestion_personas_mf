@@ -2,10 +2,7 @@
   [icon]="'corporate_fare'"
   [title]="'Registro Único de Persona Jurídica'"
   [breadcrumb]="'<p>Gestión de Proveedores > <b>Persona Jurídica</b></p>'"
-  [contenido]="contenidoDePlantilla"
-></plantilla-pagina-contenedora>
-
-<ng-template #contenidoDePlantilla>
+>
 
   <stepper-visual
     [label]="'Progreso del registro de persona jurídica'"
@@ -20,7 +17,7 @@
         [title]="'1. Información Financiera Corporativa y Capital Social'"
         [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
       >
-        <p>Aquí irá la información financiera de la tarjeta.</p>
+        <p>Aquí irá la información de la tarjeta.</p>
       </plantilla-tarjeta-contenedora>
     }
 
@@ -30,9 +27,9 @@
         [title]="'2. Información de la Persona Jurídica'"
         [description]="'Información de la persona jurídica, incluyendo datos de constitución, representantes legales y estructura organizacional.'"
       >
-        <p>Aquí irá la información de la persona jurídica.</p>
+        <p>Aquí irá la información de la tarjeta.</p>
       </plantilla-tarjeta-contenedora>
     }
   </section>
 
-</ng-template>
+</plantilla-pagina-contenedora>
