@@ -13,7 +13,9 @@
   <section class="contenido-pasos" aria-label="Información del registro">
     @switch (pasoActual) {
       @case (1) {
-        <registro-persona-juridica-paso-1></registro-persona-juridica-paso-1>
+        <registro-persona-juridica-paso-1
+          [(formulario)]="formulario"
+        ></registro-persona-juridica-paso-1>
         }
       @case (2) {
         <registro-persona-juridica-paso-2></registro-persona-juridica-paso-2>

@@ -16,6 +16,8 @@ import { DireccionGeneradaComponent } from "./components/formulario/direccion-ge
     PlantillaPaginaContenedoraComponent,
     PlantillaTarjetaContenedoraComponent,
     StepperVisualComponent,
+    AvisoLegalComponent,
+    BarraAccionesComponent,
     DireccionGeneradaComponent,
   ],
   imports: [
@@ -35,6 +37,8 @@ import { DireccionGeneradaComponent } from "./components/formulario/direccion-ge
     PlantillaPaginaContenedoraComponent,
     PlantillaTarjetaContenedoraComponent,
     StepperVisualComponent,
+    AvisoLegalComponent,
+    BarraAccionesComponent,
     DireccionGeneradaComponent,
   ],
 })

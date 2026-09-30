@@ -1,17 +1,187 @@
-<form>
+<form [formGroup]="formulario">
   <plantilla-tarjeta-contenedora
-    [icon]="'help_outline'"
-    [title]="'Placeholder de contenido'"
-    [description]="'Tarjeta de prueba'"
+    [icon]="'business'"
+    [title]="'1. Identificación Tributaria y Razón Social de la Entidad'"
+    [description]="'Conforme a certificación de existencia y representación legal de Cámara de Comercio y Registro Único Tributario (RUT).'"
   >
-    <p>Esta es una tarjeta de prueba para verificar renderizado y funcionalidad. Puede reemplazar este contenido con información relevante según sea necesario.</p>
+    <div class="campo-grid campo-grid--four">
+      <label class="campo">
+        <span>NIT de la Empresa <b>*</b></span>
+        <input formControlName="nit" type="text">
+      </label>
+      <label class="campo">
+        <span>Dígito Verif. (DV)</span>
+        <input formControlName="digitoVerificacion" type="text">
+      </label>
+      <label class="campo">
+        <span>Confirmar NIT <b>*</b></span>
+        <input formControlName="nitConfirmacion" type="text">
+      </label>
+      <label class="campo">
+        <span>Procedencia de la Empresa <b>*</b></span>
+        <select formControlName="procedencia">
+          <option>Nacional (Constituida en Colombia)</option>
+          <option>Extranjera con Sucursal en Colombia</option>
+          <option>Extranjera sin Domicilio en el País</option>
+        </select>
+      </label>
+    </div>
+    <div class="campo-grid campo-grid--three">
+      <label class="campo campo--wide">
+        <span>Razón Social Completa Registrada en Cámara <b>*</b></span>
+        <input formControlName="razonSocial" type="text">
+      </label>
+      <label class="campo">
+        <span>Nombre Comercial / Sigla</span>
+        <input formControlName="nombreComercial" type="text">
+      </label>
+    </div>
+    <div class="campo-grid campo-grid--four">
+      <label class="campo">
+        <span>Matrícula Mercantil <b>*</b></span>
+        <input formControlName="matriculaMercantil" type="text">
+      </label>
+      <label class="campo">
+        <span>Cámara de Comercio <b>*</b></span>
+        <select formControlName="camaraComercio">
+          <option>Cámara de Comercio de Bogotá</option>
+          <option>Cámara de Comercio de Medellín</option>
+          <option>Cámara de Comercio de Cali</option>
+          <option>Cámara de Comercio de Barranquilla</option>
+          <option>Otra Jurisdicción Nacional</option>
+        </select>
+      </label>
+      <label class="campo">
+        <span>Fecha Constitución <b>*</b></span>
+        <input formControlName="fechaConstitucion" type="date">
+      </label>
+      <label class="campo">
+        <span>Fecha Renovación Matrícula <b>*</b></span>
+        <input formControlName="fechaRenovacion" type="date">
+      </label>
+      <label class="campo campo--wide">
+        <span>Tipo de Organización / Figura Jurídica <b>*</b></span>
+        <select formControlName="tipoOrganizacion">
+          <option>Sociedad por Acciones Simplificada - S.A.S.</option>
+          <option>Sociedad Anónima - S.A.</option>
+          <option>Sociedad de Responsabilidad Limitada - Ltda.</option>
+          <option>Entidad Sin Ánimo de Lucro - ESAL</option>
+          <option>Sucursal de Sociedad Extranjera</option>
+        </select>
+      </label>
+      <label class="campo campo--wide">
+        <span>Tamaño Empresarial (Decreto 957/2019) <b>*</b></span>
+        <select formControlName="tamanoEmpresarial">
+          <option>Microempresa (Hasta 23.563 UVT Servicios)</option>
+          <option>Pequeña Empresa (Hasta 204.653 UVT Servicios)</option>
+          <option>Mediana Empresa (Hasta 483.034 UVT Servicios)</option>
+          <option>Gran Empresa (Mayor a 483.034 UVT)</option>
+        </select>
+      </label>
+    </div>
+  </plantilla-tarjeta-contenedora>
+
+  <aviso-legal-formulario
+    [title]="'Aviso Legal Obligatorio • Transparencia y Cumplimiento SAGRILAFT / PTEE'"
+  >
+    <p>En cumplimiento de la <strong>Directiva Presidencial 01 de 2023</strong> y las directrices de la <strong>Superintendencia de Sociedades</strong>, la Universidad Distrital realiza validación obligatoria en listas restrictivas vinculantes (OFAC, ONU, Contraloría General, Procuraduría y Policía Nacional) de socios con participación igual o superior al 5% y del Representante Legal.</p>
+  </aviso-legal-formulario>
+
+  <plantilla-tarjeta-contenedora
+    [icon]="'group'"
+    [title]="'2. Representación Legal Principal y Facultades Contractuales'"
+    [description]="'Datos de la persona facultada conforme al Certificado de Existencia y Representación Legal.'"
+  >
+    <div class="vinculacion">
+      <h3><mat-icon>person_search</mat-icon> Búsqueda y Vinculación Asistida de Persona Natural</h3>
+      <p>Cotejo con Censo Ciudadano</p>
+      <div class="campo-grid campo-grid--three">
+        <label class="campo"><span>Documento Identificación <b>*</b></span><input formControlName="documentoRepresentante" type="text"></label>
+        <label class="campo"><span>Cargo Representante <b>*</b></span><input formControlName="cargoRepresentante" type="text"></label>
+        <button class="boton boton--primary" type="button">Relacionar</button>
+      </div>
+    </div>
+    <div class="campo-grid campo-grid--four">
+      <label class="campo"><span>Primer Apellido <b>*</b></span><input formControlName="primerApellido" type="text"></label>
+      <label class="campo"><span>Segundo Apellido</span><input formControlName="segundoApellido" type="text"></label>
+      <label class="campo"><span>Primer Nombre <b>*</b></span><input formControlName="primerNombre" type="text"></label>
+      <label class="campo"><span>Segundo Nombre</span><input formControlName="segundoNombre" type="text"></label>
+      <label class="campo campo--wide"><span>Correo Corporativo Representante <b>*</b></span><input formControlName="correoRepresentante" type="email"></label>
+      <label class="campo campo--wide"><span>Teléfono Celular Directo <b>*</b></span><input formControlName="telefonoRepresentante" type="tel"></label>
+    </div>
+    <fieldset class="opciones">
+      <legend>¿Tiene limitación estatutaria en cuantía para celebrar contratos o comprometer a la sociedad? <b>*</b></legend>
+      <label><input formControlName="limitacionEstatutaria" value="no" type="radio"> No, facultades amplias y suficientes sin límite de cuantía (Estatutos tipo S.A.S.)</label>
+      <label><input formControlName="limitacionEstatutaria" value="si" type="radio"> Sí, requiere autorización previa de Junta Directiva / Asamblea de Accionistas</label>
+    </fieldset>
+    <label class="checkbox-line"><input formControlName="registrarSuplente" type="checkbox"><span>Registrar Representante Legal Suplente o Apoderado Especial con Poder Vigente</span><small>Opcional según estatutos</small></label>
   </plantilla-tarjeta-contenedora>
 
   <plantilla-tarjeta-contenedora
-    [icon]="'help_outline'"
-    [title]="'Placeholder de contenido'"
-    [description]="'Tarjeta de prueba'"
+    [icon]="'wallet'"
+    [title]="'3. Beneficiarios Finales, SAGRILAFT y Responsabilidades Tributarias'"
+    [description]="'Determinación de control societario, revisoría fiscal y obligaciones Casilla 53 del RUT.'"
   >
-    <p>Esta es una tarjeta de prueba para verificar renderizado y funcionalidad. Puede reemplazar este contenido con información relevante según sea necesario.</p>
+    <div class="campo-grid campo-grid--three">
+      <label class="campo campo--question"><span>¿Cuenta con Beneficiarios Finales reportados en el RUB? <b>*</b></span><select formControlName="beneficiariosFinales"><option>Sí, titularidad directa/indirecta &gt;= 5%</option><option>No, participación pública mayoritaria</option></select></label>
+      <label class="campo campo--question"><span>¿Cotiza en la Bolsa de Valores de Colombia (BVC)? <b>*</b></span><select formControlName="cotizaBolsa"><option>No cotiza en bolsa de valores</option><option>Sí, cotiza activamente en bolsa</option></select></label>
+      <label class="campo campo--question"><span>¿Obligada a contar con Revisor Fiscal? <b>*</b></span><select formControlName="revisorFiscal"><option>Sí, por monto de activos o estatutos</option><option>No obligada legalmente</option></select></label>
+      <label class="campo campo--question"><span>¿Gran Contribuyente DIAN? <b>*</b></span><select formControlName="granContribuyente"><option>No</option><option>Sí (Con Resolución Vigente)</option></select></label>
+      <label class="campo campo--question"><span>¿Es Autorretenedor en Renta? <b>*</b></span><select formControlName="autorretenedor"><option>No</option><option>Sí (Resolución DIAN)</option></select></label>
+      <label class="campo campo--question"><span>¿Aplica Exención ICA Bogotá? <b>*</b></span><select formControlName="exencionIca"><option>No, tarifa plena Distrital</option><option>Sí, Actividad Exenta Distrital</option></select></label>
+    </div>
+    <fieldset class="responsabilidades">
+      <legend>Responsabilidades Fiscales en Casilla 53 del RUT vigente: <b>*</b></legend>
+      <label><input formControlName="responsabilidadRenta" type="checkbox"><strong>05:</strong> Renta Régimen Ordinario</label>
+      <label><input formControlName="responsabilidadIva" type="checkbox"><strong>48:</strong> Impuesto a las Ventas - IVA</label>
+      <label><input formControlName="responsabilidadExogena" type="checkbox"><strong>14:</strong> Informante de Exógena</label>
+      <label><input formControlName="responsabilidadContabilidad" type="checkbox"><strong>42:</strong> Obligado a llevar contabilidad</label>
+    </fieldset>
+  </plantilla-tarjeta-contenedora>
+
+  <plantilla-tarjeta-contenedora
+    [icon]="'markunreadmailbox'"
+    [title]="'4. Domicilio Principal y Canales de Contacto Oficial (Estándar DIAN)'"
+    [description]="'Diligencie la nomenclatura oficial para notificaciones judiciales y administrativas de la Universidad.'"
+  >
+    <div class="campo-grid campo-grid--two">
+      <label class="campo"><span>Departamento de Sede Principal <b>*</b></span><select formControlName="departamento"><option>Bogotá D.C.</option><option>Cundinamarca</option><option>Antioquia</option><option>Valle del Cauca</option></select></label>
+      <label class="campo"><span>Ciudad / Municipio <b>*</b></span><select formControlName="ciudad"><option>Bogotá D.C.</option><option>Chía</option><option>Soacha</option><option>Medellín</option></select></label>
+    </div>
+    <div class="direccion">
+      <h3><mat-icon>signpost</mat-icon> Generador de Nomenclatura Estándar DIAN (RUT)</h3>
+      <div class="campo-grid campo-grid--four">
+        <label class="campo"><span>Vía *</span><select formControlName="tipoVia"><option>CALLE</option><option>CARRERA</option><option>AVENIDA CARRERA</option><option>DIAGONAL</option><option>TRANSVERSAL</option></select></label>
+        <label class="campo"><span>Detalle Vía *</span><input formControlName="detalleVia" type="text"></label>
+        <label class="campo"><span>Número Cruce *</span><input formControlName="numeroCruce" type="text"></label>
+        <label class="campo"><span>Placa Puerta *</span><input formControlName="placaPuerta" type="text"></label>
+        <label class="campo"><span>Interior 1</span><select formControlName="interiorTipo"><option>OF</option><option>LC</option><option>PIS</option><option>ED</option></select></label>
+        <label class="campo"><span>Det. Interior</span><input formControlName="detalleInterior" type="text"></label>
+      </div>
+      <direccion-generada
+        [direccion]="'AK 68 # 45 - 20 OF 502 ED BAVARIA'"
+      ></direccion-generada>
+    </div>
+    <h3 class="subtitulo"><mat-icon>contact_phone</mat-icon> Información de Canales de Contacto Directo y Notificaciones</h3>
+    <div class="campo-grid campo-grid--four">
+      <label class="campo"><span>Correo Notificaciones Judiciales *</span><input formControlName="correoNotificaciones" type="email"></label>
+      <label class="campo"><span>Confirmar Correo *</span><input formControlName="correoNotificacionesConfirmacion" type="email"></label>
+      <label class="campo"><span>PBX Corporativo / Teléfono Fijo *</span><input formControlName="telefonoFijo" type="tel"></label>
+      <label class="campo"><span>Extensión Telefónica</span><input formControlName="extension" type="text"></label>
+      <label class="campo"><span>Teléfono Celular / Alterno *</span><input formControlName="telefonoAlterno" type="tel"></label>
+      <label class="campo"><span>Sitio Web Corporativo</span><input formControlName="sitioWeb" type="url"></label>
+      <label class="campo"><span>Contacto Comercial / Asesor</span><input formControlName="contactoComercial" type="text"></label>
+      <label class="campo"><span>Teléfono Asesor Comercial</span><input formControlName="telefonoAsesor" type="tel"></label>
+    </div>
+  </plantilla-tarjeta-contenedora>
+
+  <plantilla-tarjeta-contenedora
+    [icon]="'policy'"
+    [title]="'5. Términos de Registro y Autorización de Tratamiento de Datos (Ley 1581 de 2012)'"
+  >
+    <div>
+      <p>La persona jurídica solicitante certifica que los datos consignados en este formulario son veraces, actualizados y corresponden íntegramente a los asientos mercantiles y tributarios vigentes. Autoriza de manera libre, expresa y previa a la Universidad Distrital Francisco José de Caldas a recolectar, verificar ante entidades oficiales (RUES, DIAN, Contraloría, Policía Nacional) y almacenar la información personal y societaria para efectos contractuales y misionales institucionales.</p>
+    </div>
+    <label class="checkbox-line"><input id="terminos" formControlName="aceptaTerminos" type="checkbox" required><span>Acepto los Términos, Condiciones y Autorizo el Tratamiento de Datos Personales y Societarios</span></label>
   </plantilla-tarjeta-contenedora>
 </form>

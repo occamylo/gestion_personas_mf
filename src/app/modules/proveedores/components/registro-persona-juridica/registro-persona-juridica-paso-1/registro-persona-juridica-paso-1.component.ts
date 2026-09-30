@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'registro-persona-juridica-paso-1',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class RegistroPersonaJuridicaPaso1Component {
+
+  @Input() formulario: FormGroup = new FormGroup({});
+  @Output() formularioChange = new EventEmitter<FormGroup>();
+
 }
