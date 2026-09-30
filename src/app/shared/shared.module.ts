@@ -7,12 +7,16 @@ import { IconosModule } from "./modules/iconos.module";
 import { PlantillaPaginaContenedoraComponent } from "./components/templates/plantilla-pagina-contenedora/plantilla-pagina-contenedora.component";
 import { PlantillaTarjetaContenedoraComponent } from "./components/templates/plantilla-tarjeta-contenedora/plantilla-tarjeta-contenedora.component";
 import { StepperVisualComponent } from "./components/stepper-visual/stepper-visual.component";
+import { AvisoLegalComponent } from "./components/formulario/aviso-legal/aviso-legal.component";
+import { BarraAccionesComponent } from "./components/formulario/barra-acciones/barra-acciones.component";
+import { DireccionGeneradaComponent } from "./components/formulario/direccion-generada/direccion-generada.component";
 
 @NgModule({
   declarations: [
     PlantillaPaginaContenedoraComponent,
     PlantillaTarjetaContenedoraComponent,
     StepperVisualComponent,
+    DireccionGeneradaComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import { StepperVisualComponent } from "./components/stepper-visual/stepper-visu
     PlantillaPaginaContenedoraComponent,
     PlantillaTarjetaContenedoraComponent,
     StepperVisualComponent,
+    DireccionGeneradaComponent,
   ],
 })
 export class SharedModule {}

@@ -1,33 +1,7 @@
+@use 'src/app/shared/styles/registro-formulario' as registro-formulario;
+
+@include registro-formulario.styles;
+
 :host {
 	display: block;
-}
-
-form > * {
-	animation: aparecer-desde-arriba 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
-	will-change: opacity, transform;
-}
-
-@for $indice from 1 through 20 {
-	form > *:nth-child(#{$indice}) {
-		animation-delay: #{($indice - 1) * 60}ms;
-	}
-}
-
-@keyframes aparecer-desde-arriba {
-	from {
-		opacity: 0;
-		transform: translateY(-1rem);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	form > * {
-		animation: none;
-		will-change: auto;
-	}
 }

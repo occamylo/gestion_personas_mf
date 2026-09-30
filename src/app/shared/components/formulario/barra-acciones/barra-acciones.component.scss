@@ -1,0 +1,138 @@
+:host {
+  display: block;
+}
+
+.barra-acciones {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: calc(var(--footer-height, 4rem) + 1rem + env(safe-area-inset-bottom));
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: auto;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid rgb(105 16 27 / 8%);
+  border-radius: 0.75rem;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 0.5rem 1.5rem rgb(37 24 25 / 14%);
+  backdrop-filter: blur(0.75rem);
+}
+
+.estado-autoguardado,
+.acciones,
+.boton-borrador,
+.boton-acento {
+  display: flex;
+  align-items: center;
+}
+
+.estado-autoguardado {
+  gap: 0.5rem;
+  min-width: 0;
+  color: #564241;
+}
+
+.estado-autoguardado__icono {
+  flex: 0 0 auto;
+  color: #277443;
+}
+
+.estado-autoguardado__texto {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.estado-autoguardado__texto :is(strong, span) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.estado-autoguardado__texto strong {
+  color: #251819;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+.estado-autoguardado__texto span {
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+}
+
+.acciones {
+  flex: 0 0 auto;
+  gap: 0.5rem;
+}
+
+.boton-borrador,
+.boton-acento {
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.boton-borrador {
+  color: #47000b;
+  background: #fff0f0;
+}
+
+.boton-borrador:hover,
+.boton-borrador:focus-visible {
+  background: #ffe2e3;
+}
+
+.boton-acento {
+  color: #fff;
+  background: #47000b;
+  box-shadow: 0 0.25rem 0.5rem rgb(71 0 11 / 20%);
+}
+
+.boton-acento:hover,
+.boton-acento:focus-visible {
+  background: #69101b;
+}
+
+:is(.boton-borrador, .boton-acento):focus-visible {
+  outline: 0.1875rem solid rgb(167 55 62 / 35%);
+  outline-offset: 0.125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boton-borrador,
+  .boton-acento {
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .barra-acciones {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: calc(var(--footer-height, 4rem) + 0.75rem + env(safe-area-inset-bottom));
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .acciones {
+    width: 100%;
+  }
+
+  .boton-borrador,
+  .boton-acento {
+    flex: 1;
+  }
+}
