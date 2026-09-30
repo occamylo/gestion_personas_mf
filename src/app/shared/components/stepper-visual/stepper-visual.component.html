@@ -1,0 +1,33 @@
+<nav class="stepper-visual" [aria-label]="label">
+  @for (paso of pasos; track paso.numero; let ultimo = $last) {
+    <button
+      class="paso"
+      [class.paso--activo]="pasoActual === paso.numero"
+      [class.paso--completado]="pasoActual > paso.numero"
+      type="button"
+      [attr.aria-current]="pasoActual === paso.numero ? 'step' : null"
+      (click)="seleccionarPaso(paso.numero)"
+    >
+      <span class="paso__fila">
+        <span class="paso__indicador">
+          @if (pasoActual > paso.numero) {
+            <mat-icon aria-hidden="true">check</mat-icon>
+          } @else {
+            @if (paso.icono) {
+              <mat-icon aria-hidden="true">{{ paso.icono }}</mat-icon>
+            } @else {
+              <span class="paso__numero">{{ paso.numero }}</span>
+            }
+          }
+        </span>
+        @if (!ultimo) {
+          <span class="paso__conector" aria-hidden="true"></span>
+        }
+      </span>
+      <span class="paso__texto">
+        <span class="paso__etiqueta">Paso {{ paso.numero }}</span>
+        <span class="paso__nombre">{{ paso.nombre }}</span>
+      </span>
+    </button>
+  }
+</nav>

@@ -6,11 +6,13 @@ import { MaterialModule } from "./modules/material.module";
 import { IconosModule } from "./modules/iconos.module";
 import { PlantillaPaginaContenedoraComponent } from "./components/templates/plantilla-pagina-contenedora/plantilla-pagina-contenedora.component";
 import { PlantillaTarjetaContenedoraComponent } from "./components/templates/plantilla-tarjeta-contenedora/plantilla-tarjeta-contenedora.component";
+import { StepperVisualComponent } from "./components/stepper-visual/stepper-visual.component";
 
 @NgModule({
   declarations: [
     PlantillaPaginaContenedoraComponent,
     PlantillaTarjetaContenedoraComponent,
+    StepperVisualComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { PlantillaTarjetaContenedoraComponent } from "./components/templates/pla
     IconosModule,
     PlantillaPaginaContenedoraComponent,
     PlantillaTarjetaContenedoraComponent,
+    StepperVisualComponent,
   ],
 })
 export class SharedModule {}

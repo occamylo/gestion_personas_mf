@@ -6,21 +6,33 @@
 ></plantilla-pagina-contenedora>
 
 <ng-template #contenidoDePlantilla>
-  <plantilla-tarjeta-contenedora
-    [icon]="'account_balance'"
-    [title]="'1. Información Financiera Corporativa y Capital Social'"
-    [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
-    [contenido]="contenidoTarjeta"
-  ></plantilla-tarjeta-contenedora>
 
-  <plantilla-tarjeta-contenedora
-    [icon]="'business'"
-    [title]="'2. Información de la Persona Jurídica'"
-    [description]="'Información de la persona jurídica, incluyendo datos de constitución, representantes legales y estructura organizacional.'"
-    [contenido]="contenidoTarjeta"
-  ></plantilla-tarjeta-contenedora>
-</ng-template>
+  <stepper-visual
+    [label]="'Progreso del registro de persona jurídica'"
+    [pasos]="pasos"
+    [(pasoActual)]="pasoActual"
+  ></stepper-visual>
 
-<ng-template #contenidoTarjeta>
-  <p>Aquí irá la información de la tarjeta.</p>
+  <section class="contenido-pasos" aria-label="Información del registro">
+    @if (pasoActual === 1) {
+      <plantilla-tarjeta-contenedora
+        [icon]="'account_balance'"
+        [title]="'1. Información Financiera Corporativa y Capital Social'"
+        [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
+      >
+        <p>Aquí irá la información financiera de la tarjeta.</p>
+      </plantilla-tarjeta-contenedora>
+    }
+
+    @if (pasoActual === 2) {
+      <plantilla-tarjeta-contenedora
+        [icon]="'business'"
+        [title]="'2. Información de la Persona Jurídica'"
+        [description]="'Información de la persona jurídica, incluyendo datos de constitución, representantes legales y estructura organizacional.'"
+      >
+        <p>Aquí irá la información de la persona jurídica.</p>
+      </plantilla-tarjeta-contenedora>
+    }
+  </section>
+
 </ng-template>
