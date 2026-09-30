@@ -12,10 +12,14 @@ export class RegistroPersonaJuridicaComponent {
   pasoActual = 1;
 
   pasos: PasoStepperVisual[] = [
-    { numero: 1, icono: "person", nombre: "Datos societarios y representación" },
-    { numero: 2, nombre: "Información financiera" },
+    { numero: 1, icono: "person", nombre: "Datos Societarios y Representación" },
+    { numero: 2, nombre: "Información Financiera" },
     { numero: 3, nombre: "Documentos, RUES y RUP" },
-    { numero: 4, nombre: "Actividad y declaración" },
+    { numero: 4, nombre: "Actividad y Declaración" },
   ];
+
+  finalizar() {
+    alert("Se ha presionado el botón Finalizar. Se puede redirigir a otra página o mostrar un mensaje de éxito.");
+  }
 
 }
