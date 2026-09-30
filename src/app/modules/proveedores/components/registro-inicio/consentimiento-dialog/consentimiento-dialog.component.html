@@ -1,0 +1,31 @@
+<div class="rp-consentimiento" [class]="'rp-consentimiento--' + contenido.tono">
+  <header class="rp-consentimiento-cabecera">
+    <div class="rp-consentimiento-icono">
+      <mat-icon>{{ contenido.icono }}</mat-icon>
+    </div>
+    <div class="rp-consentimiento-titulos">
+      <span class="rp-consentimiento-antetitulo">{{ contenido.antetitulo }}</span>
+      <h2 class="rp-consentimiento-titulo" >{{ contenido.titulo }}</h2>
+    </div>
+  </header>
+
+  <mat-dialog-content class="rp-consentimiento-cuerpo">
+    @for (parrafo of contenido.parrafos; track $index) {
+      <p class="rp-consentimiento-parrafo">{{ parrafo }}</p>
+    }
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="rp-consentimiento-acciones">
+    @for (boton of contenido.botones; track boton.accion) {
+      <button
+        type="button"
+        class="rp-consentimiento-boton"
+        [class.rp-consentimiento-boton--destacado]="boton.destacado"
+        (click)="accion(boton.accion)"
+      >
+        <mat-icon>{{ boton.icono }}</mat-icon>
+        <span>{{ boton.texto }}</span>
+      </button>
+    }
+  </mat-dialog-actions>
+</div>
