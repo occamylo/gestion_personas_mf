@@ -11,32 +11,19 @@
   ></stepper-visual>
 
   <section class="contenido-pasos" aria-label="Información del registro">
-    @if (pasoActual === 1) {
-      <plantilla-tarjeta-contenedora
-        [icon]="'account_balance'"
-        [title]="'1. Información Financiera Corporativa y Capital Social'"
-        [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
-      >
-        <p>Aquí irá la información de la tarjeta.</p>
-      </plantilla-tarjeta-contenedora>
-
-      <plantilla-tarjeta-contenedora
-        [icon]="'account_balance'"
-        [title]="'1.1. Otra Información Financiera Corporativa y Capital Social'"
-        [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
-      >
-        <p>Aquí irá otro elemento la información de la tarjeta.</p>
-      </plantilla-tarjeta-contenedora>
-    }
-
-    @if (pasoActual === 2) {
-      <plantilla-tarjeta-contenedora
-        [icon]="'business'"
-        [title]="'2. Información de la Persona Jurídica'"
-        [description]="'Información de la persona jurídica, incluyendo datos de constitución, representantes legales y estructura organizacional.'"
-      >
-        <p>Aquí irá la información de la tarjeta.</p>
-      </plantilla-tarjeta-contenedora>
+    @switch (pasoActual) {
+      @case (1) {
+        <registro-persona-juridica-paso-1></registro-persona-juridica-paso-1>
+        }
+      @case (2) {
+        <registro-persona-juridica-paso-2></registro-persona-juridica-paso-2>
+      }
+      @case (3) {
+        <registro-persona-juridica-paso-3></registro-persona-juridica-paso-3>
+      }
+      @case (4) {
+        <registro-persona-juridica-paso-4></registro-persona-juridica-paso-4>
+      }
     }
   </section>
 

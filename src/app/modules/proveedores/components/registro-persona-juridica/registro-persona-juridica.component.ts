@@ -13,9 +13,9 @@ export class RegistroPersonaJuridicaComponent {
 
   pasos: PasoStepperVisual[] = [
     { numero: 1, icono: "person", nombre: "Datos Societarios y Representación" },
-    { numero: 2, nombre: "Información Financiera" },
-    { numero: 3, nombre: "Documentos, RUES y RUP" },
-    { numero: 4, nombre: "Actividad y Declaración" },
+    { numero: 2, icono: "account_balance", nombre: "Información Financiera" },
+    { numero: 3, icono: "description", nombre: "Documentos, RUES y RUP" },
+    { numero: 4, icono: "assignment", nombre: "Actividad y Declaración" },
   ];
 
   finalizar() {
