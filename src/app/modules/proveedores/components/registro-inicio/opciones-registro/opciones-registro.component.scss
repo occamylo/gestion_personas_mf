@@ -1,0 +1,221 @@
+/* --------------------------------------------------------------------------
+   Tarjetas de opción
+   -------------------------------------------------------------------------- */
+
+:host {
+  --rp-superficie: #ffffff;
+  --rp-superficie-baja: var(--md-primary-50, #ffeae6);
+  --rp-superficie-alta: var(--md-primary-100, #ffe0e0);
+  --rp-primario: var(--md-primary-900, #490606);
+  --rp-primario-contenedor: var(--md-primary-800, #4a0d0d);
+  --rp-secundario: var(--md-primary-500, #a11413);
+  --rp-en-primary: #ffffff;
+  --rp-texto: #251819;
+  --rp-texto-variante: #564241;
+  --rp-contorno: #ddc0bf;
+  --rp-alerta-fondo: color-mix(in srgb, var(--warning-base, #fbbb3e) 28%, #ffffff);
+  --rp-alerta-borde: var(--warning-main, #fcd17e);
+  --rp-alerta-icono: color-mix(in srgb, var(--warning-accent, #faa500) 65%, #000000);
+  --rp-alerta-titulo: color-mix(in srgb, var(--warning-accent, #faa500) 55%, #000000);
+  --rp-alerta-texto: color-mix(in srgb, var(--warning-accent, #faa500) 50%, #000000);
+  --rp-bloqueo-fondo: color-mix(in srgb, var(--error-base, #c0392b) 8%, #ffffff);
+  --rp-bloqueo-borde: color-mix(in srgb, var(--error-base, #c0392b) 35%, #ffffff);
+  --rp-bloqueo-icono: var(--error-accent, #b3261e);
+  --rp-bloqueo-titulo: color-mix(in srgb, var(--error-base, #c0392b) 80%, #000000);
+  --rp-bloqueo-texto: color-mix(in srgb, var(--error-base, #c0392b) 70%, #000000);
+
+  display: block;
+}
+
+.rp-fila-opciones {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .rp-fila-opciones {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.rp-columna-opcion {
+  display: flex;
+}
+
+.rp-opcion {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+  border: 2px solid color-mix(in srgb, var(--rp-contorno) 40%, var(--rp-superficie));
+  border-radius: 8px;
+  background-color: var(--rp-superficie);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+
+.rp-opcion:hover {
+  border-color: color-mix(in srgb, var(--rp-primario-contenedor) 60%, transparent);
+  background-color: var(--rp-superficie-baja);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.rp-opcion--seleccionada,
+.rp-opcion--seleccionada:hover {
+  border-color: var(--rp-primario-contenedor);
+  background-color: var(--rp-superficie-baja);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.rp-fila-opciones--bloqueada .rp-opcion,
+.rp-fila-opciones--bloqueada .rp-opcion:hover {
+  border-color: color-mix(in srgb, var(--rp-contorno) 25%, var(--rp-superficie));
+  background-color: color-mix(in srgb, var(--rp-texto-variante) 5%, var(--rp-superficie));
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.rp-fila-opciones--bloqueada .rp-opcion-icono {
+  background-color: color-mix(in srgb, var(--rp-texto-variante) 10%, var(--rp-superficie));
+  color: color-mix(in srgb, var(--rp-primario) 45%, var(--rp-superficie));
+  box-shadow: none;
+}
+
+.rp-fila-opciones--bloqueada .rp-opcion-radio {
+  border-color: color-mix(in srgb, var(--rp-contorno) 60%, var(--rp-superficie));
+  background-color: color-mix(in srgb, var(--rp-texto-variante) 5%, var(--rp-superficie));
+}
+
+.rp-fila-opciones--bloqueada .rp-opcion-titulo,
+.rp-fila-opciones--bloqueada .rp-opcion-subtitulo,
+.rp-fila-opciones--bloqueada .rp-opcion-descripcion {
+  color: color-mix(in srgb, var(--rp-texto-variante) 60%, var(--rp-superficie));
+}
+
+.rp-opcion-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rp-opcion:has(.rp-opcion-input:focus-visible) {
+  outline: 3px solid var(--rp-primario);
+  outline-offset: 2px;
+}
+
+.rp-opcion-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rp-opcion-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: var(--rp-superficie-alta);
+  color: var(--rp-primario);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.rp-opcion:hover .rp-opcion-icono,
+.rp-opcion--seleccionada .rp-opcion-icono {
+  background-color: var(--rp-primario-contenedor);
+  color: var(--rp-en-primary);
+}
+
+.rp-ico-opcion {
+  font-size: 26px;
+  width: 26px;
+  height: 26px;
+}
+
+.rp-opcion-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--rp-contorno);
+  border-radius: 12px;
+  background-color: var(--rp-superficie);
+}
+
+.rp-opcion--seleccionada .rp-opcion-radio {
+  border-color: var(--rp-primario-contenedor);
+}
+
+.rp-opcion-radio-punto {
+  width: 14px;
+  height: 14px;
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.rp-opcion--seleccionada .rp-opcion-radio-punto {
+  background-color: var(--rp-primario-contenedor);
+}
+
+.rp-opcion-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.rp-opcion-titulo {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--rp-texto);
+  transition: color 0.2s ease-in-out;
+}
+
+.rp-opcion:hover .rp-opcion-titulo,
+.rp-opcion--seleccionada .rp-opcion-titulo {
+  color: var(--rp-primario);
+}
+
+.rp-opcion-subtitulo {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--rp-texto-variante);
+}
+
+.rp-opcion--seleccionada .rp-opcion-subtitulo {
+  font-weight: 700;
+  color: var(--rp-secundario);
+}
+
+.rp-opcion-descripcion {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.625;
+  color: var(--rp-texto-variante);
+}
+
+.rp-opcion-pie {
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--rp-contorno) 30%, transparent);
+}
