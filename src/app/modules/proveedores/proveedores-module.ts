@@ -7,6 +7,9 @@ import { RegistroPersonaJuridicaPaso1Component } from "./components/registro-per
 import { RegistroPersonaJuridicaPaso2Component } from "./components/registro-persona-juridica/registro-persona-juridica-paso-2/registro-persona-juridica-paso-2.component";
 import { RegistroPersonaJuridicaPaso3Component } from "./components/registro-persona-juridica/registro-persona-juridica-paso-3/registro-persona-juridica-paso-3.component";
 import { RegistroPersonaJuridicaPaso4Component } from "./components/registro-persona-juridica/registro-persona-juridica-paso-4/registro-persona-juridica-paso-4.component";
+import { ConsentimientoDialogComponent } from "./components/registro-inicio/consentimiento-dialog/consentimiento-dialog.component";
+import { OpcionesRegistroComponent } from "./components/registro-inicio/opciones-registro/opciones-registro.component";
+import { BotonTratamientoInformacionComponent } from "./components/registro-inicio/boton-tratamiento-informacion/boton-tratamiento-informacion.component";
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { RegistroPersonaJuridicaPaso4Component } from "./components/registro-per
     RegistroPersonaJuridicaPaso2Component,
     RegistroPersonaJuridicaPaso3Component,
     RegistroPersonaJuridicaPaso4Component,
+    ConsentimientoDialogComponent,
+    OpcionesRegistroComponent,
+    BotonTratamientoInformacionComponent
   ],
   imports: [
     SharedModule,

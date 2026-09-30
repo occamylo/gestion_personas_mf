@@ -2,11 +2,8 @@
   [icon]="'edit_square'"
   [title]="'Registro Único de Persona y Proveedor'"
   [breadcrumb]="'<p>Gestión de Proveedores > Registro > <b>Formulario Único de Proveedor</b></p>'"
-  [contenido]="contenidoDePlantilla"
-></plantilla-pagina-contenedora>
-
-<ng-template #contenidoDePlantilla>
-  <div>
+>
+  <div class="rp-contenedor">
     <!-- Tarjeta principal -->
     <section class="rp-tarjeta">
       <!-- Banda superior -->
@@ -27,7 +24,7 @@
           </p>
         </div>
       </div>
-  
+
       <!-- Cuerpo -->
       <div class="rp-tarjeta-cuerpo">
         <div class="rp-alerta">
@@ -42,7 +39,7 @@
             </p>
           </div>
         </div>
-  
+
         @if (consentimientoPendiente) {
           <div class="rp-alerta rp-alerta--bloqueo" role="alert">
             <mat-icon class="rp-alerta-icono">lock</mat-icon>
@@ -55,7 +52,7 @@
             </div>
           </div>
         }
-  
+
         <fieldset
           class="rp-grupo"
           [class.rp-grupo--bloqueado]="consentimientoPendiente"
@@ -74,13 +71,13 @@
             [deshabilitado]="consentimientoPendiente"
           ></app-opciones-registro>
         </fieldset>
-  
+
         <app-boton-tratamiento-informacion
           [consentimientoAceptado]="consentimientoAceptado()"
           (solicitarConsentimiento)="consultarConsentimiento()"
         ></app-boton-tratamiento-informacion>
       </div>
-  
+
       <!-- Pie -->
       <div class="rp-tarjeta-pie rp-acciones">
           <button
@@ -95,6 +92,4 @@
         </div>
     </section>
   </div>
-</ng-template>
-
-
+</plantilla-pagina-contenedora>
