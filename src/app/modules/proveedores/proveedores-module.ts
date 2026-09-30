@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "src/app/shared/shared.module";
-import { RegistroRoutingModule } from "./registro-routing.module";
+import { ProveedoresRoutingModule } from "./proveedores-routing.module";
 import { RegistroInicioComponent } from "./components/registro-inicio/registro-inicio.component";
-import { RegistroPersonaJuridicaComponent } from "./components/persona-juridica/persona-juridica.component";
+import { RegistroPersonaJuridicaComponent } from "./components/registro-persona-juridica/registro-persona-juridica.component";
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { RegistroPersonaJuridicaComponent } from "./components/persona-juridica/
   ],
   imports: [
     SharedModule,
-    RegistroRoutingModule
+    ProveedoresRoutingModule
   ],
 })
-export class RegistroModule {}
+export class ProveedoresModule {}

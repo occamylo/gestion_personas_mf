@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { RegistroInicioComponent } from "./components/registro-inicio/registro-inicio.component";
-import { RegistroPersonaJuridicaComponent } from "./components/persona-juridica/persona-juridica.component";
+import { RegistroPersonaJuridicaComponent } from "./components/registro-persona-juridica/registro-persona-juridica.component";
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
     component: RegistroInicioComponent,
   },
   {
-    path: "persona-juridica",
+    path: "registro-persona-juridica",
     component: RegistroPersonaJuridicaComponent,
   },
 ];
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RegistroRoutingModule {}
+export class ProveedoresRoutingModule {}

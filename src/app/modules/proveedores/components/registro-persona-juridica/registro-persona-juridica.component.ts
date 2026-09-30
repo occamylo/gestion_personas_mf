@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "app-persona-juridica",
-  templateUrl: "./persona-juridica.component.html",
-  styleUrls: ["./persona-juridica.component.scss"],
+  selector: "app-registro-persona-juridica",
+  templateUrl: "./registro-persona-juridica.component.html",
+  styleUrls: ["./registro-persona-juridica.component.scss"],
   standalone: false,
 })
 export class RegistroPersonaJuridicaComponent {

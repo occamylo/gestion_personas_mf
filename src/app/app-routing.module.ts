@@ -4,15 +4,15 @@ import { APP_BASE_HREF } from "@angular/common";
 
 const routes: Routes = [
   {
-    path: "registro",
+    path: "proveedores",
     loadChildren: () =>
-      import("./modules/registro/registro.module").then(
-        (m) => m.RegistroModule
+      import("./modules/proveedores/proveedores-module").then(
+        (m) => m.ProveedoresModule
       ),
   },
   {
     path: "",
-    redirectTo: "registro",
+    redirectTo: "proveedores",
     pathMatch: "full",
   },
 ];
