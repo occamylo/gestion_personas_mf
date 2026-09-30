@@ -1,0 +1,26 @@
+<plantilla-pagina-contenedora
+  [icon]="'corporate_fare'"
+  [title]="'Registro Único de Persona Jurídica'"
+  [breadcrumb]="'<p>Gestión de Proveedores > <b>Persona Jurídica</b></p>'"
+  [contenido]="contenidoDePlantilla"
+></plantilla-pagina-contenedora>
+
+<ng-template #contenidoDePlantilla>
+  <plantilla-tarjeta-contenedora
+    [icon]="'account_balance'"
+    [title]="'1. Información Financiera Corporativa y Capital Social'"
+    [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
+    [contenido]="contenidoTarjeta"
+  ></plantilla-tarjeta-contenedora>
+
+  <plantilla-tarjeta-contenedora
+    [icon]="'business'"
+    [title]="'2. Información de la Persona Jurídica'"
+    [description]="'Información de la persona jurídica, incluyendo datos de constitución, representantes legales y estructura organizacional.'"
+    [contenido]="contenidoTarjeta"
+  ></plantilla-tarjeta-contenedora>
+</ng-template>
+
+<ng-template #contenidoTarjeta>
+  <p>Aquí irá la información de la tarjeta.</p>
+</ng-template>

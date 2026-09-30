@@ -1,0 +1,49 @@
+<div class="contenedor-pagina">
+  <main class="pagina">
+    <header class="encabezado">
+      <div class="encabezado__contenido">
+        @if (breadcrumb) {
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <span [innerHTML]="breadcrumb"></span>
+          </nav>
+        }
+        <h1 class="titulo">
+          <mat-icon *ngIf="icon" aria-hidden="true">
+            {{ icon }}
+          </mat-icon>
+          {{ title }}
+        </h1>
+        @if (subtitle || subtitleChild) {
+          <div class="metadatos">
+            @if (subtitle) {
+              <span class="metadato">
+                <span><strong>{{ subtitle }}</strong></span>
+              </span>
+            }
+            @if (subtitleChild) {
+              <span class="metadato">
+                <strong>{{ subtitleChild }}</strong>
+              </span>
+            }
+          </div>
+        }
+      </div>
+
+      @if (mostrarBotonRegresar) {
+        <button
+          class="boton-regresar"
+          mat-stroked-button
+          type="button"
+          (click)="emitirEventoRegresar()"
+        >
+          <mat-icon aria-hidden="true">arrow_back</mat-icon>
+          Regresar
+        </button>
+      }
+    </header>
+
+    <section class="contenido">
+      <ng-container *ngTemplateOutlet="contenido"></ng-container>
+    </section>
+  </main>
+</div>
