@@ -69,7 +69,27 @@ export class RegistroPersonaJuridicaComponent {
     sitioWeb: new FormControl('https://www.integratech.com.co'),
     contactoComercial: new FormControl('MARCELA GÓMEZ RINCÓN'),
     telefonoAsesor: new FormControl('3186749920'),
-    aceptaTerminos: new FormControl(false)
+    aceptaTerminos: new FormControl(false),
+    tipoConstitucion: new FormControl('capital_privado_nacional'),
+    capitalAutorizado: new FormControl('500000000'),
+    capitalSuscritoPagado: new FormControl('350000000'),
+    activosTotales: new FormControl('1240850000'),
+    pasivosTotales: new FormControl('385200000'),
+    banco: new FormControl('banco_bogota'),
+    tipoCuenta: new FormControl('corriente'),
+    ciudadApertura: new FormControl('bogota'),
+    numeroCuenta: new FormControl('21004598210'),
+    numeroCuentaConfirmacion: new FormControl('21004598210'),
+    titularCuenta: new FormControl('SOLUCIONES TECNOLÓGICAS E INTEGRACIONES S.A.S.'),
+    correoPagos: new FormControl('pagos@integratech.com.co'),
+    correoPagosConfirmacion: new FormControl('pagos@integratech.com.co'),
+    responsableTesoreria: new FormControl('Diana Marcela Mendoza Castro'),
+    telefonoTesoreria: new FormControl('+57 (601) 745 8900 Ext. 105'),
+    obligadoFacturar: new FormControl('si'),
+    prefijoFacturacion: new FormControl('SETT - 001 hasta 50000'),
+    resolucionDian: new FormControl('18764039201934 del 14/01/2024'),
+    monedaExtranjera: new FormControl('no'),
+    certificacionBancaria: new FormControl('Certificacion_Bancaria_BancoBogota_2025.pdf')
   });
 
   ngOnInit() {
