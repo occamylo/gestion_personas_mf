@@ -98,6 +98,13 @@
 		gap: 0.4rem;
 	}
 
+	.opciones {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.4rem;
+	}
+
 	.vinculacion p {
 		margin: 0.25rem 0 0.75rem;
 		color: var(--agora-text-muted);
@@ -214,8 +221,15 @@
 		font-size: 0.75rem;
 	}
 
-	:is(.opciones, .responsabilidades) legend {
-		margin-bottom: 0.75rem;
+	:is(.opciones, .responsabilidades) legend,
+	.opciones__titulo {
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0;
+		position: static;
+		float: none;
+		margin: 0 0 0.6rem;
 		color: var(--agora-text);
 		font-size: 0.75rem;
 		font-weight: 700;
@@ -230,7 +244,7 @@
 		line-height: 1.45;
 	}
 
-	.opciones label + label { margin-top: 0.6rem; }
+	.opciones label + label { margin-top: 0; }
 
 	.responsabilidades {
 		display: grid;

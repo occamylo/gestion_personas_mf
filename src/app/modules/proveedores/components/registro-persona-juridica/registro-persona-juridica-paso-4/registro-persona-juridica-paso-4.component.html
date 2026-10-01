@@ -48,12 +48,12 @@
     [title]="'3. Declaraciones Normativas, Inhabilidades y SAGRILAFT'"
     [description]="'Confirme las declaraciones obligatorias para la radicación del registro.'"
   >
-    <fieldset class="opciones declaraciones-lista">
-      <legend>Declaraciones del proveedor <b>*</b></legend>
+    <div class="opciones declaraciones-lista" role="group" aria-labelledby="declaraciones-proveedor-titulo">
+      <span class="opciones__titulo" id="declaraciones-proveedor-titulo">Declaraciones del proveedor <b>*</b></span>
       @for (declaracion of declaraciones; track declaracion.value) {
         <label><input [checked]="estaDeclaracionSeleccionada(declaracion.value)" (change)="cambiarDeclaracion(declaracion.value, $any($event.target).checked)" type="checkbox"> {{ declaracion.label }}</label>
       }
-    </fieldset>
+    </div>
   </plantilla-tarjeta-contenedora>
 
   <plantilla-tarjeta-contenedora

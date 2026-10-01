@@ -104,12 +104,12 @@
       <label class="campo campo--wide"><span>Correo Corporativo Representante <b>*</b></span><input formControlName="correoRepresentante" type="email"></label>
       <label class="campo campo--wide"><span>Teléfono Celular Directo <b>*</b></span><input formControlName="telefonoRepresentante" type="tel"></label>
     </div>
-    <fieldset class="opciones">
-      <legend>¿Tiene limitación estatutaria en cuantía para celebrar contratos o comprometer a la sociedad? <b>*</b></legend>
+    <div class="opciones" role="group" aria-labelledby="limitacion-estatutaria-titulo">
+      <span class="opciones__titulo" id="limitacion-estatutaria-titulo">¿Tiene limitación estatutaria en cuantía para celebrar contratos o comprometer a la sociedad? <b>*</b></span>
       @for (opcion of opcionesLimitacionEstatutaria; track opcion.value) {
         <label><input formControlName="limitacionEstatutaria" [value]="opcion.value" type="radio"> {{ opcion.label }}</label>
       }
-    </fieldset>
+    </div>
     <label class="checkbox-line"><input formControlName="registrarSuplente" type="checkbox"><span>Registrar Representante Legal Suplente o Apoderado Especial con Poder Vigente</span><small>Opcional según estatutos</small></label>
   </plantilla-tarjeta-contenedora>
 
