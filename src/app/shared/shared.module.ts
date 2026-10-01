@@ -11,6 +11,7 @@ import { AvisoLegalComponent } from "./components/formulario/aviso-legal/aviso-l
 import { BarraAccionesComponent } from "./components/formulario/barra-acciones/barra-acciones.component";
 import { DireccionGeneradaComponent } from "./components/formulario/direccion-generada/direccion-generada.component";
 import { CampoDineroComponent } from "./components/formulario/campo-dinero/campo-dinero.component";
+import { ValidacionCampoDirective } from "./directives/validacion-campo.directive";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CampoDineroComponent } from "./components/formulario/campo-dinero/campo
     BarraAccionesComponent,
     DireccionGeneradaComponent,
     CampoDineroComponent,
+    ValidacionCampoDirective,
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { CampoDineroComponent } from "./components/formulario/campo-dinero/campo
     BarraAccionesComponent,
     DireccionGeneradaComponent,
     CampoDineroComponent,
+    ValidacionCampoDirective,
   ],
 })
 export class SharedModule {}

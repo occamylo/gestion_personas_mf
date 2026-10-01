@@ -39,7 +39,7 @@
     [mostrarRegreso]="pasoActual > 1"
     [esUltimoPaso]="pasoActual === pasos.length"
     (regreso)="pasoActual = pasoActual - 1"
-    (continuar)="pasoActual = pasoActual + 1"
+    (continuar)="continuar()"
     (finalizar)="finalizar()"
   ></barra-acciones-formulario>
 

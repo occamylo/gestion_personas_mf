@@ -2,6 +2,13 @@
   display: block;
 }
 
+:host(.campo--invalido) .campo-dinero {
+  border: 2px solid #ba1a1a;
+  outline: 2px solid rgb(186 26 26 / 28%);
+  background: #fff1f1;
+  box-shadow: 0 0 0 2px rgb(186 26 26 / 12%);
+}
+
 .campo-dinero {
   display: flex;
   align-items: center;
