@@ -2,25 +2,39 @@
   [icon]="'corporate_fare'"
   [title]="'Registro Único de Persona Jurídica'"
   [breadcrumb]="'<p>Gestión de Proveedores > <b>Persona Jurídica</b></p>'"
-  [contenido]="contenidoDePlantilla"
-></plantilla-pagina-contenedora>
+>
 
-<ng-template #contenidoDePlantilla>
-  <plantilla-tarjeta-contenedora
-    [icon]="'account_balance'"
-    [title]="'1. Información Financiera Corporativa y Capital Social'"
-    [description]="'Conformación patrimonial y estados financieros certificados según NIIF para el Registro Único de Proponentes (RUP).'"
-    [contenido]="contenidoTarjeta"
-  ></plantilla-tarjeta-contenedora>
+  <stepper-visual
+    [label]="'Progreso del registro de persona jurídica'"
+    [pasos]="pasos"
+    [(pasoActual)]="pasoActual"
+  ></stepper-visual>
 
-  <plantilla-tarjeta-contenedora
-    [icon]="'business'"
-    [title]="'2. Información de la Persona Jurídica'"
-    [description]="'Información de la persona jurídica, incluyendo datos de constitución, representantes legales y estructura organizacional.'"
-    [contenido]="contenidoTarjeta"
-  ></plantilla-tarjeta-contenedora>
-</ng-template>
+  <section class="contenido-pasos" aria-label="Información del registro">
+    @switch (pasoActual) {
+      @case (1) {
+        <registro-persona-juridica-paso-1
+          [(formulario)]="formulario"
+        ></registro-persona-juridica-paso-1>
+        }
+      @case (2) {
+        <registro-persona-juridica-paso-2></registro-persona-juridica-paso-2>
+      }
+      @case (3) {
+        <registro-persona-juridica-paso-3></registro-persona-juridica-paso-3>
+      }
+      @case (4) {
+        <registro-persona-juridica-paso-4></registro-persona-juridica-paso-4>
+      }
+    }
+  </section>
 
-<ng-template #contenidoTarjeta>
-  <p>Aquí irá la información de la tarjeta.</p>
-</ng-template>
+  <barra-acciones-formulario
+    [mostrarRegreso]="pasoActual > 1"
+    [esUltimoPaso]="pasoActual === pasos.length"
+    (regreso)="pasoActual = pasoActual - 1"
+    (continuar)="pasoActual = pasoActual + 1"
+    (finalizar)="finalizar()"
+  ></barra-acciones-formulario>
+
+</plantilla-pagina-contenedora>
