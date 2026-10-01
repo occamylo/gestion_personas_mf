@@ -10,6 +10,7 @@ import { StepperVisualComponent } from "./components/stepper-visual/stepper-visu
 import { AvisoLegalComponent } from "./components/formulario/aviso-legal/aviso-legal.component";
 import { BarraAccionesComponent } from "./components/formulario/barra-acciones/barra-acciones.component";
 import { DireccionGeneradaComponent } from "./components/formulario/direccion-generada/direccion-generada.component";
+import { CampoDineroComponent } from "./components/formulario/campo-dinero/campo-dinero.component";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DireccionGeneradaComponent } from "./components/formulario/direccion-ge
     AvisoLegalComponent,
     BarraAccionesComponent,
     DireccionGeneradaComponent,
+    CampoDineroComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import { DireccionGeneradaComponent } from "./components/formulario/direccion-ge
     AvisoLegalComponent,
     BarraAccionesComponent,
     DireccionGeneradaComponent,
+    CampoDineroComponent,
   ],
 })
 export class SharedModule {}
