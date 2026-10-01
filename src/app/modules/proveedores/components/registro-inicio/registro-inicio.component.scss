@@ -1,70 +1,17 @@
-/* ==========================================================================
-   Selección de Modalidad de Registro
-   Tokens derivados de la paleta institucional del host (--md-*) con fallback
-   propio, para que la vista sea estable dentro y fuera del microfrontend.
-   ========================================================================== */
-
-:host {
-  --rp-superficie: #ffffff;
-  --rp-superficie-baja: var(--md-primary-50, #ffeae6);
-  --rp-superficie-alta: var(--md-primary-100, #ffe0e0);
-  --rp-primario: var(--md-primary-900, #490606);
-  --rp-primario-contenedor: var(--md-primary-800, #4a0d0d);
-  --rp-secundario: var(--md-primary-500, #a11413);
-  --rp-en-primary: #ffffff;
-  --rp-texto: #251819;
-  --rp-texto-variante: #564241;
-  --rp-contorno: #ddc0bf;
-  --rp-alerta-fondo: color-mix(in srgb, var(--warning-base, #fbbb3e) 28%, #ffffff);
-  --rp-alerta-borde: var(--warning-main, #fcd17e);
-  --rp-alerta-icono: color-mix(in srgb, var(--warning-accent, #faa500) 65%, #000000);
-  --rp-alerta-titulo: color-mix(in srgb, var(--warning-accent, #faa500) 55%, #000000);
-  --rp-alerta-texto: color-mix(in srgb, var(--warning-accent, #faa500) 50%, #000000);
-  --rp-bloqueo-fondo: color-mix(in srgb, var(--error-base, #c0392b) 8%, #ffffff);
-  --rp-bloqueo-borde: color-mix(in srgb, var(--error-base, #c0392b) 35%, #ffffff);
-  --rp-bloqueo-icono: var(--error-accent, #b3261e);
-  --rp-bloqueo-titulo: color-mix(in srgb, var(--error-base, #c0392b) 80%, #000000);
-  --rp-bloqueo-texto: color-mix(in srgb, var(--error-base, #c0392b) 70%, #000000);
-
-  display: block;
-}
-
-/* --------------------------------------------------------------------------
-   Tarjeta principal
-   -------------------------------------------------------------------------- */
-
 .rp-tarjeta {
-  display: flex;
-  flex-direction: column;
   background-color: var(--rp-superficie);
-  border-radius: 8px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03);
   overflow: hidden;
 }
 
 .rp-tarjeta-banda {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 16px;
   background-color: var(--rp-superficie-baja);
   border-bottom: 1px solid color-mix(in srgb, var(--rp-contorno) 30%, transparent);
 }
 
-@media (min-width: 992px) {
-  .rp-tarjeta-banda {
-    padding: 24px;
-  }
-}
-
 .rp-banda-icono {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border-radius: 8px;
   background-color: var(--rp-primario-contenedor);
   color: var(--rp-en-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -77,23 +24,12 @@
 }
 
 .rp-banda-texto {
-  display: flex;
-  flex-direction: column;
   min-width: 0;
 }
 
-.rp-banda-titulos {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 .rp-banda-titulos h2 {
-  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 700;
   color: var(--rp-primario);
 }
 
@@ -103,12 +39,10 @@
   background-color: var(--rp-primario-contenedor);
   color: var(--rp-en-primary);
   font-size: 11px;
-  font-weight: 700;
   white-space: nowrap;
 }
 
 .rp-banda-texto p {
-  margin: 4px 0 0;
   font-size: 14px;
   line-height: 1.625;
   font-weight: 400;
@@ -116,9 +50,6 @@
 }
 
 .rp-tarjeta-cuerpo {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   padding: 16px;
 }
 
@@ -128,23 +59,15 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   Alerta informativa
-   -------------------------------------------------------------------------- */
-
 .rp-alerta {
-  display: flex;
-  align-items: flex-start;
   gap: 14px;
   padding: 16px;
-  border-radius: 8px;
   background-color: var(--rp-alerta-fondo);
   border: 1px solid var(--rp-alerta-borde);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .rp-alerta-icono {
-  flex-shrink: 0;
   margin-top: 2px;
   font-size: 26px;
   width: 26px;
@@ -153,15 +76,12 @@
 }
 
 .rp-alerta-titulo {
-  margin: 0;
   font-size: 13px;
   line-height: 1.25;
-  font-weight: 700;
   color: var(--rp-alerta-titulo);
 }
 
 .rp-alerta-texto {
-  margin: 4px 0 0;
   font-size: 12px;
   line-height: 1.625;
   color: var(--rp-alerta-texto);
@@ -184,58 +104,14 @@
   color: var(--rp-bloqueo-texto);
 }
 
-/* --------------------------------------------------------------------------
-   Grupo de selección
-   -------------------------------------------------------------------------- */
-
 .rp-grupo {
-  display: block;
   min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.rp-grupo--bloqueado .rp-opcion {
-  border-color: color-mix(in srgb, var(--rp-contorno) 25%, var(--rp-superficie));
-  background-color: color-mix(in srgb, var(--rp-texto-variante) 5%, var(--rp-superficie));
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.rp-grupo--bloqueado .rp-opcion:hover {
-  border-color: color-mix(in srgb, var(--rp-contorno) 25%, var(--rp-superficie));
-  background-color: color-mix(in srgb, var(--rp-texto-variante) 5%, var(--rp-superficie));
-  box-shadow: none;
-}
-
-.rp-grupo--bloqueado .rp-opcion-icono {
-  background-color: color-mix(in srgb, var(--rp-texto-variante) 10%, var(--rp-superficie));
-  color: color-mix(in srgb, var(--rp-primario) 45%, var(--rp-superficie));
-  box-shadow: none;
-}
-
-.rp-grupo--bloqueado .rp-opcion-radio {
-  border-color: color-mix(in srgb, var(--rp-contorno) 60%, var(--rp-superficie));
-  background-color: color-mix(in srgb, var(--rp-texto-variante) 5%, var(--rp-superficie));
-}
-
-.rp-grupo--bloqueado .rp-opcion-titulo,
-.rp-grupo--bloqueado .rp-opcion-subtitulo,
-.rp-grupo--bloqueado .rp-opcion-descripcion {
-  color: color-mix(in srgb, var(--rp-texto-variante) 60%, var(--rp-superficie));
 }
 
 .rp-grupo-leyenda {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0;
   font-size: 13px;
   line-height: 18px;
-  font-weight: 700;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--rp-primario);
 }
 
@@ -251,16 +127,7 @@
   transform: translate(-6px, -6px);
 }
 
-/* --------------------------------------------------------------------------
-   Pie de la tarjeta
-   -------------------------------------------------------------------------- */
-
 .rp-tarjeta-pie {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
   padding: 16px;
   background-color: var(--rp-superficie-baja);
   border-top: 1px solid color-mix(in srgb, var(--rp-contorno) 30%, transparent);
@@ -272,40 +139,28 @@
   }
 }
 
-@media (min-width: 576px) {
-  .rp-tarjeta-pie {
-    flex-direction: row;
-  }
-}
-
 .rp-btn-continuar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 12px;
   width: 100%;
   min-height: 44px;
   padding: 0 24px;
-  border: 0;
-  border-radius: 4px;
   color: var(--rp-en-primary);
   background-color: var(--rp-primario-contenedor);
   font: inherit;
   font-size: 13px;
-  font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
     transform 0.1s ease-in-out;
 }
 
-.rp-acciones .rp-btn-continuar:hover {
+.rp-btn-continuar:hover {
   background-color: var(--rp-primario);
   filter: saturate(50%);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
-.rp-acciones .rp-btn-continuar:active {
+.rp-btn-continuar:active {
   transform: scale(0.98);
 }
 
@@ -316,25 +171,20 @@
   cursor: not-allowed;
 }
 
-.rp-acciones .rp-btn-continuar .rp-ico-continuar {
+.rp-btn-continuar .rp-ico-continuar {
   font-size: 20px;
   width: 20px;
   height: 20px;
   transition: transform 0.2s ease-in-out;
 }
 
-.rp-acciones .rp-btn-continuar:hover .rp-ico-continuar {
+.rp-btn-continuar:hover .rp-ico-continuar {
   transform: translateX(3px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rp-btn-regresar,
-  .rp-btn-regresar mat-icon,
   .rp-btn-continuar,
-  .rp-seguridad,
-  .rp-seguridad-enlace,
-  .rp-ico-seguridad-enlace,
-  .rp-acciones .rp-btn-continuar .rp-ico-continuar {
+  .rp-btn-continuar .rp-ico-continuar {
     transition: none;
   }
 }
