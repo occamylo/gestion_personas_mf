@@ -11,6 +11,15 @@ export interface DatosConsentimientoDialog {
   vista: VistaConsentimiento;
 }
 
+interface SegmentoRender {
+  texto: string;
+  url?: string;
+}
+
+interface ParrafoRender {
+  segmentos: SegmentoRender[];
+}
+
 @Component({
   selector: "app-consentimiento-dialog",
   templateUrl: "./consentimiento-dialog.component.html",
@@ -19,6 +28,7 @@ export interface DatosConsentimientoDialog {
 })
 export class ConsentimientoDialogComponent {
   readonly contenido: ContenidoConsentimiento;
+  readonly parrafos: ParrafoRender[];
 
   constructor(
     private readonly dialogRef: MatDialogRef<
@@ -28,6 +38,13 @@ export class ConsentimientoDialogComponent {
     @Inject(MAT_DIALOG_DATA) datos: DatosConsentimientoDialog
   ) {
     this.contenido = CONTENIDO_CONSENTIMIENTO[datos.vista];
+    this.parrafos = this.contenido.parrafos.map((parrafo) => ({
+      segmentos: parrafo.segmentos.map((segmento) =>
+        typeof segmento === "string"
+          ? { texto: segmento }
+          : { texto: segmento.texto, url: segmento.url }
+      ),
+    }));
   }
 
   accion(accion: AccionConsentimiento): void {

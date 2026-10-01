@@ -10,8 +10,22 @@
   </header>
 
   <mat-dialog-content class="rp-consentimiento-cuerpo">
-    @for (parrafo of contenido.parrafos; track $index) {
-      <p class="rp-consentimiento-parrafo">{{ parrafo }}</p>
+    @for (parrafo of parrafos; track $index) {
+      <p class="rp-consentimiento-parrafo">
+        @for (segmento of parrafo.segmentos; track $index) {
+          @if (segmento.url) {
+            <a
+              class="rp-consentimiento-enlace"
+              [href]="segmento.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ segmento.texto }}</a
+            >
+          } @else {
+            {{ segmento.texto }}
+          }
+        }
+      </p>
     }
   </mat-dialog-content>
 
