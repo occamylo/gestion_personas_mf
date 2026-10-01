@@ -57,6 +57,16 @@
   transition: background-color 0.2s ease-in-out;
 }
 
+@media (max-width: 570px) {
+  .rp-seguridad-enlace {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 .rp-seguridad:hover .rp-seguridad-enlace {
   background-color: var(--rp-primario);
 }
