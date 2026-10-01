@@ -5,3 +5,28 @@
 :host {
 	display: block;
 }
+
+.campo-grid--direccion {
+	--columnas: 1;
+}
+
+@media (min-width: 40rem) {
+	.campo-grid--direccion {
+		--columnas: 3;
+	}
+}
+
+@media (min-width: 64rem) {
+	.campo-grid--direccion {
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) auto minmax(0, 1fr) auto minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 1fr);
+		--columnas: 8;
+	}
+}
+
+.separador-direccion {
+	align-self: end;
+	padding-bottom: 0.7rem;
+	color: var(--agora-text-muted);
+	font-size: 1rem;
+	font-weight: 700;
+}

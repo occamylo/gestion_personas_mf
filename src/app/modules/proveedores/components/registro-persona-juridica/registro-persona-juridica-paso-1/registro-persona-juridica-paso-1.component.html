@@ -184,14 +184,16 @@
     </div>
     <div class="direccion">
       <h3><mat-icon>signpost</mat-icon> Generador de Nomenclatura Estándar DIAN (RUT)</h3>
-      <div class="campo-grid campo-grid--four">
+      <div class="campo-grid campo-grid--direccion">
         <label class="campo"><span>Vía *</span><select formControlName="tipoVia">
           @for (opcion of opcionesTipoVia; track opcion.value) {
             <option [value]="opcion.value">{{ opcion.label }}</option>
           }
         </select></label>
         <label class="campo"><span>Detalle Vía *</span><input formControlName="detalleVia" type="text"></label>
+        <span class="separador-direccion" aria-hidden="true">#</span>
         <label class="campo"><span>Número Cruce *</span><input formControlName="numeroCruce" type="text"></label>
+        <span class="separador-direccion" aria-hidden="true">-</span>
         <label class="campo"><span>Placa Puerta *</span><input formControlName="placaPuerta" type="text"></label>
         <label class="campo"><span>Interior 1</span><select formControlName="interiorTipo">
           @for (opcion of opcionesTipoInterior; track opcion.value) {
@@ -201,7 +203,7 @@
         <label class="campo"><span>Det. Interior</span><input formControlName="detalleInterior" type="text"></label>
       </div>
       <direccion-generada
-        [direccion]="'AK 68 # 45 - 20 OF 502 ED BAVARIA'"
+        [direccion]="direccionGenerada"
       ></direccion-generada>
     </div>
     <h3 class="subtitulo"><mat-icon>contact_phone</mat-icon> Información de Canales de Contacto Directo y Notificaciones</h3>

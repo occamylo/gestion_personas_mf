@@ -137,6 +137,20 @@ export class RegistroPersonaJuridicaPaso1Component {
 
   opcionesCiudad: Opcion<string>[] = [];
 
+  get direccionGenerada(): string {
+    const tipoVia = this.formulario.get('tipoVia')?.value ?? '';
+    const detalleVia = this.formulario.get('detalleVia')?.value ?? '';
+    const numeroCruce = this.formulario.get('numeroCruce')?.value ?? '';
+    const placaPuerta = this.formulario.get('placaPuerta')?.value ?? '';
+    const interiorTipo = this.formulario.get('interiorTipo')?.value ?? '';
+    const detalleInterior = this.formulario.get('detalleInterior')?.value ?? '';
+    const via = [tipoVia, detalleVia].filter(Boolean).join(' ').toUpperCase();
+    const cruce = [numeroCruce, placaPuerta].filter(Boolean).join(' - ');
+    const interior = [interiorTipo, detalleInterior].filter(Boolean).join(' ').toUpperCase();
+
+    return [via, cruce ? `# ${cruce}` : '', interior].filter(Boolean).join(' ');
+  }
+
   ngOnInit(): void {
     const departamento = this.formulario.get('departamento')?.value;
     this.onDepartamentoChange(departamento);
