@@ -97,7 +97,13 @@ export class RegistroPersonaJuridicaComponent {
     rupArchivo: new FormControl('Certificado_RUP_Vigente_2025.pdf'),
     vigenciaRup: new FormControl('2025-12-31'),
     certificadoParafiscales: new FormControl('Cert_Parafiscales_Feb2025.pdf'),
-    aportesSeguridadSocial: new FormControl(true)
+    aportesSeguridadSocial: new FormControl(true),
+    actividadesCiiu: new FormControl<string[]>(['6201', '6202', '6209']),
+    codigosUnspsc: new FormControl<string[]>(['43211500', '81111500', '81112200', '43222600']),
+    descripcionServicios: new FormControl('Soluciones de infraestructura tecnológica de misión crítica, desarrollo de arquitecturas cloud, ciberseguridad aplicada, soporte integral de hardware institucional y licenciamiento corporativo para entidades de educación superior pública y sectores gubernamentales del Distrito Capital.'),
+    declaraciones: new FormControl<string[]>(['veracidad', 'inhabilidades', 'sagrilaft']),
+    tokenOtp: new FormControl('482913'),
+    aceptaTratamiento: new FormControl(true)
   });
 
   ngOnInit() {
