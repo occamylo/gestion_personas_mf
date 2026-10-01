@@ -87,7 +87,7 @@
 	:is(.vinculacion, .direccion, .responsabilidades, .opciones) {
 		margin-bottom: 1rem;
 		padding: 1rem;
-		border: 0;
+		border: 1px solid #f6dddd;
 		border-radius: 0.75rem;
 		background: #fff0f0;
 	}
@@ -114,6 +114,104 @@
 		color: #fff;
 		font-weight: 700;
 		cursor: pointer;
+	}
+
+	.documentos-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.documento-card,
+	.soporte-rup {
+		padding: 1rem;
+		border: 1px solid #f6dddd;
+		border-radius: 0.75rem;
+		background: #fff0f0;
+	}
+
+	.documento-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+	}
+
+	.documento-card h3 {
+		margin: 0;
+		color: var(--agora-primary);
+		font-size: 0.875rem;
+	}
+
+	.documento-card p {
+		margin: 0;
+		color: var(--agora-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.45;
+	}
+
+	.documento-icono {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 0.75rem;
+		background: #fee2e2;
+		color: #7f1d1d;
+	}
+
+	.documento-acciones,
+	.soporte-rup {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.documento-acciones .boton,
+	.soporte-rup .boton {
+		min-height: 2.25rem;
+		padding: 0.5rem 0.75rem;
+		font-size: 0.75rem;
+	}
+
+	.boton mat-icon {
+		font-size: 1rem;
+		vertical-align: middle;
+	}
+
+	.boton--secundario {
+		background: var(--agora-primary);
+		color: #fff;
+	}
+
+	.boton--ligero {
+		background: #fce2e3;
+		color: var(--agora-primary);
+	}
+
+	.etiqueta-documento {
+		display: block;
+		margin-bottom: 0.35rem;
+		color: var(--agora-primary);
+		font-size: 0.6875rem;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.soporte-rup > div:nth-child(2) {
+		min-width: min(100%, 18rem);
+		flex: 1;
+	}
+
+	.soporte-rup input {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0.55rem 0.65rem;
+		border: 0;
+		border-radius: 0.4rem;
+		background: #fff;
+		color: var(--agora-text);
+		font-size: 0.75rem;
 	}
 
 	:is(.opciones, .responsabilidades) legend {
@@ -171,6 +269,7 @@
 		.campo-grid--three { --columnas: 3; }
 		.campo-grid--four,
 		.responsabilidades { --columnas: 4; }
+		.documentos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	}
 
 	@media (max-width: 40rem) {

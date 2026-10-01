@@ -89,7 +89,15 @@ export class RegistroPersonaJuridicaComponent {
     prefijoFacturacion: new FormControl('SETT - 001 hasta 50000'),
     resolucionDian: new FormControl('18764039201934 del 14/01/2024'),
     monedaExtranjera: new FormControl('no'),
-    certificacionBancaria: new FormControl('Certificacion_Bancaria_BancoBogota_2025.pdf')
+    certificacionBancaria: new FormControl('Certificacion_Bancaria_BancoBogota_2025.pdf'),
+    rutArchivo: new FormControl('RUT_Integratech_2025.pdf'),
+    certificadoExistenciaArchivo: new FormControl('Certificado_CCB_Integratech_2025.pdf'),
+    cedulaRepresentanteArchivo: new FormControl('Cedula_Representante_Legal.pdf'),
+    tieneRup: new FormControl(true),
+    rupArchivo: new FormControl('Certificado_RUP_Vigente_2025.pdf'),
+    vigenciaRup: new FormControl('2025-12-31'),
+    certificadoParafiscales: new FormControl('Cert_Parafiscales_Feb2025.pdf'),
+    aportesSeguridadSocial: new FormControl(true)
   });
 
   ngOnInit() {

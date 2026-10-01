@@ -78,10 +78,16 @@
           </select></label>
         </div>
       </div>
-      <div class="vinculacion">
-        <h3><mat-icon>attach_file</mat-icon>Certificación Bancaria</h3>
-        <label class="campo campo--wide"><span>Adjuntar archivo (PDF obligatorio)</span><input formControlName="certificacionBancaria" type="text"></label>
-      </div>
+      <article class="documento-card">
+        <div class="documento-icono"><mat-icon>picture_as_pdf</mat-icon></div>
+        <h3>Certificación bancaria</h3>
+        <p>Documento expedido por la entidad bancaria con una antigüedad no mayor a 30 días.</p>
+        <label class="campo"><span>Archivo cargado</span><input formControlName="certificacionBancaria" type="text" readonly></label>
+        <div class="documento-acciones">
+          <button class="boton boton--secundario" type="button"><mat-icon>visibility</mat-icon> Ver documento</button>
+          <button class="boton boton--ligero" type="button"><mat-icon>cached</mat-icon> Reemplazar</button>
+        </div>
+      </article>
     </section>
   </plantilla-tarjeta-contenedora>
 </form>
