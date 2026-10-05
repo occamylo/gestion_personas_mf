@@ -1,17 +1,72 @@
-<form>
+<form [formGroup]="formulario" (input)="emitirCambio()" (change)="emitirCambio()">
   <plantilla-tarjeta-contenedora
-    [icon]="'help_outline'"
-    [title]="'Placeholder de contenido'"
-    [description]="'Tarjeta de prueba'"
+    [icon]="'storefront'"
+    [title]="'1. Actividades Económicas y Clasificación de Bienes y Servicios (CIIU y UNSPSC)'"
+    [description]="'Homologación tributaria según RUT y clasificador de bienes para contratación con el Estado.'"
   >
-    <p>Esta es una tarjeta de prueba para verificar renderizado y funcionalidad. Puede reemplazar este contenido con información relevante según sea necesario.</p>
+    <aviso-legal-formulario [title]="'Normativa UD'">
+      <p>Relacione al menos una actividad económica principal registrada en la casilla 46 del RUT. Los códigos adicionales deben ser coherentes con el objeto social registrado.</p>
+    </aviso-legal-formulario>
+    <div class="subtitulo"><mat-icon>category</mat-icon> Clasificación Industrial Internacional Uniforme (CIIU Rev. 4 A.C.)</div>
+    <div class="actividades-lista">
+      @for (actividad of actividadesCiiu; track actividad.codigo) {
+        <div class="vinculacion actividad-item" [class.actividad-principal]="actividad.principal">
+          <div class="actividad-codigo">{{ actividad.codigo }}</div>
+          <div><strong>{{ actividad.principal ? 'Principal en RUT (Casilla 46)' : 'Actividad secundaria' }}</strong><p>{{ actividad.nombre }}</p></div>
+          @if (actividad.principal) { <mat-icon>star</mat-icon> } @else { <button class="boton boton--ligero" title="Eliminar actividad" type="button"><mat-icon>delete</mat-icon></button> }
+        </div>
+      }
+    </div>
+    <div class="subtitulo"><mat-icon>inventory_2</mat-icon> Segmentos, Familias y Clases UNSPSC</div>
+    <div class="codigos-lista">
+      @for (codigo of codigosUnspsc; track codigo.codigo) {
+        <span class="codigo-item"><strong>{{ codigo.codigo }}</strong> {{ codigo.nombre }} <mat-icon>check_circle</mat-icon></span>
+      }
+    </div>
   </plantilla-tarjeta-contenedora>
 
   <plantilla-tarjeta-contenedora
-    [icon]="'help_outline'"
-    [title]="'Placeholder de contenido'"
-    [description]="'Tarjeta de prueba'"
+    [icon]="'cases'"
+    [title]="'2. Portafolio de Bienes, Servicios y Capacidad Técnica'"
+    [description]="'Descripción detallada de la oferta comercial y experiencia empresarial para contratación pública UD.'"
   >
-    <p>Esta es una tarjeta de prueba para verificar renderizado y funcionalidad. Puede reemplazar este contenido con información relevante según sea necesario.</p>
+    <div class="editor-encabezado">
+      <label class="campo"><span>Descripción de Idoneidad Corporativa y Alcance de Servicios <b>*</b></span></label>
+      <span>{{ cantidadCaracteres }} / 2000 caracteres</span>
+    </div>
+    <div class="editor-servicios">
+      <div class="editor-barra" aria-hidden="true">
+        <mat-icon>format_bold</mat-icon><mat-icon>format_italic</mat-icon><mat-icon>format_underlined</mat-icon><mat-icon>format_list_bulleted</mat-icon><mat-icon>format_align_left</mat-icon><mat-icon>link</mat-icon>
+      </div>
+      <textarea formControlName="descripcionServicios" maxlength="2000" rows="7"></textarea>
+    </div>
+    <p class="campo-ayuda"><mat-icon>info</mat-icon> Esta descripción será visible para comités evaluadores y supervisores contractuales.</p>
+  </plantilla-tarjeta-contenedora>
+
+  <plantilla-tarjeta-contenedora
+    [icon]="'gavel'"
+    [title]="'3. Declaraciones Normativas, Inhabilidades y SAGRILAFT'"
+    [description]="'Confirme las declaraciones obligatorias para la radicación del registro.'"
+  >
+    <div class="opciones declaraciones-lista" role="group" aria-labelledby="declaraciones-proveedor-titulo">
+      <span class="opciones__titulo" id="declaraciones-proveedor-titulo">Declaraciones del proveedor <b>*</b></span>
+      @for (declaracion of declaraciones; track declaracion.value) {
+        <label><input [checked]="estaDeclaracionSeleccionada(declaracion.value)" (change)="cambiarDeclaracion(declaracion.value, $any($event.target).checked)" type="checkbox"> {{ declaracion.label }}</label>
+      }
+    </div>
+  </plantilla-tarjeta-contenedora>
+
+  <plantilla-tarjeta-contenedora
+    [icon]="'draw'"
+    [title]="'4. Mecanismo de Firma Electrónica y Formalización de Radicado'"
+    [description]="'Valide la identidad del representante legal y autorice el tratamiento de la información.'"
+  >
+    <div class="campo-grid campo-grid--three">
+      <label class="campo"><span>Representante Legal</span><input [value]="formulario.get('razonSocial')?.value ? formulario.get('primerNombre')?.value + ' ' + formulario.get('primerApellido')?.value : ''" type="text" readonly></label>
+      <label class="campo"><span>Documento</span><input [value]="formulario.get('documentoRepresentante')?.value" type="text" readonly></label>
+      <label class="campo"><span>Token OTP Institucional <b>*</b></span><input formControlName="tokenOtp" type="text" inputmode="numeric"></label>
+    </div>
+    <label class="checkbox-line"><input formControlName="aceptaTratamiento" type="checkbox"><span>Autorizo el tratamiento de datos personales y corporativos conforme a la Ley 1581 de 2012.</span></label>
+    <div class="firma-estado"><mat-icon>verified_user</mat-icon><span>Identidad lista para firma electrónica y radicación institucional.</span></div>
   </plantilla-tarjeta-contenedora>
 </form>

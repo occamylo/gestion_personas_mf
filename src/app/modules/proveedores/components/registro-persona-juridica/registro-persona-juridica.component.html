@@ -18,13 +18,19 @@
         ></registro-persona-juridica-paso-1>
         }
       @case (2) {
-        <registro-persona-juridica-paso-2></registro-persona-juridica-paso-2>
+        <registro-persona-juridica-paso-2
+          [(formulario)]="formulario"
+        ></registro-persona-juridica-paso-2>
       }
       @case (3) {
-        <registro-persona-juridica-paso-3></registro-persona-juridica-paso-3>
+        <registro-persona-juridica-paso-3
+          [(formulario)]="formulario"
+        ></registro-persona-juridica-paso-3>
       }
       @case (4) {
-        <registro-persona-juridica-paso-4></registro-persona-juridica-paso-4>
+        <registro-persona-juridica-paso-4
+          [(formulario)]="formulario"
+        ></registro-persona-juridica-paso-4>
       }
     }
   </section>
@@ -33,7 +39,7 @@
     [mostrarRegreso]="pasoActual > 1"
     [esUltimoPaso]="pasoActual === pasos.length"
     (regreso)="pasoActual = pasoActual - 1"
-    (continuar)="pasoActual = pasoActual + 1"
+    (continuar)="continuar()"
     (finalizar)="finalizar()"
   ></barra-acciones-formulario>
 
