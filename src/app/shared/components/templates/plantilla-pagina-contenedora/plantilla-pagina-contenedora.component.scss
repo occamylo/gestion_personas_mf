@@ -1,5 +1,6 @@
 :host {
   display: block;
+  --agora-page-header-offset: 0;
 }
 
 .contenedor-pagina {
@@ -97,6 +98,14 @@
 .contenido {
   padding: 0;
 }
+
+/* Ajuste horizontal opcional del encabezado por pantalla.
+   Por defecto no modifica ningún consumidor del componente. */
+.breadcrumb,
+.encabezado {
+  transform: translateX(var(--agora-page-header-offset));
+}
+
 
 @media (max-width: 40rem) {
 
