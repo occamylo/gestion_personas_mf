@@ -1,0 +1,41 @@
+<nav class="stepper-visual" [attr.aria-label]="label">
+  <button
+    *ngFor="let paso of pasos; let ultimo = last"
+    class="paso"
+    [class.paso--activo]="pasoActual === paso.numero"
+    [class.paso--completado]="pasoActual > paso.numero"
+    type="button"
+    [attr.aria-current]="pasoActual === paso.numero ? 'step' : null"
+    (click)="seleccionarPaso(paso.numero)"
+  >
+    <span class="paso__etiqueta">Paso {{ paso.numero }}</span>
+
+    <span class="paso__fila">
+      <span class="paso__indicador">
+
+        <ng-container *ngIf="pasoActual > paso.numero">
+          <mat-icon aria-hidden="true">check</mat-icon>
+        </ng-container>
+
+        <ng-container *ngIf="pasoActual <= paso.numero">
+          <ng-container *ngIf="paso.icono; else mostrarNumero">
+            <mat-icon aria-hidden="true">{{ paso.icono }}</mat-icon>
+          </ng-container>
+
+          <ng-template #mostrarNumero>
+            <span class="paso__numero">{{ paso.numero }}</span>
+          </ng-template>
+        </ng-container>
+
+      </span>
+
+      <span
+        *ngIf="!ultimo"
+        class="paso__conector"
+        aria-hidden="true"
+      ></span>
+    </span>
+
+    <span class="paso__nombre">{{ paso.nombre }}</span>
+  </button>
+</nav>
