@@ -41,8 +41,9 @@
     [icon]="'badge'"
     [title]="'1. Identificación y Datos Básicos de la Persona'"
     [description]="'Conforme al Registro Nacional de Identificación Ciudadana y lineamientos contractuales de la Universidad Distrital.'"
-    [contenido]="contenidoIdentificacion"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoIdentificacion"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
   <section class="aviso-legal-caracterizacion" aria-label="Aviso legal sobre tratamiento de información sensible">
 
@@ -80,8 +81,9 @@
     [icon]="'person_search'"
     [title]="'2. Caracterización Socio-Demográfica y Enfoque Diferencial'"
     [description]="'Datos necesarios para el cumplimiento de equidad, inclusión y reportes a entes de control del Estado.'"
-    [contenido]="contenidoCaracterizacion"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoCaracterizacion"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
   
 
@@ -89,15 +91,17 @@
     [icon]="'account_balance'"
     [title]="'3. Información para Retenciones y Beneficios Tributarios'"
     [description]="'Para determinación precisa de bases de retención en la fuente por nómina / honorarios.'"
-    [contenido]="contenidoTributario"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoTributario"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
   <plantilla-tarjeta-contenedora
     [icon]="'contact_page'"
     [title]="'4. Información de Contacto y Residencia Fiscal (Estándar DIAN)'"
     [description]="'Diligencie la nomenclatura oficial para notificaciones judiciales y administrativas de la Universidad.'"
-    [contenido]="contenidoResidenciaContacto"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoResidenciaContacto"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
 </div>
 

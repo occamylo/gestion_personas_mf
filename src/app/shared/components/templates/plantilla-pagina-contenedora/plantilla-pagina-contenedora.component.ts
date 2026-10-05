@@ -54,18 +54,6 @@ export class PlantillaPaginaContenedoraComponent {
     */
    @Input() subtitleChild: string = "";
 
-
-  /**
-   * Contenido dinámico que será renderizado dentro de la pagina.
-   * Debe ser un TemplateRef que se define en el componente padre.
-   * @example
-   * <ng-template #miTemplate>
-   *   <p>Este es el contenido dinámico</p>
-   * </ng-template>
-   * <plantilla-pagina-contenedora [contenido]="miTemplate"></plantilla-pagina-contenedora>
-   */
-  @Input() contenido!: TemplateRef<any>;
-
   /**
    * Indica si debe mostrarse el botón "Regresar".
    * @default false

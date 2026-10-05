@@ -22,22 +22,25 @@
     [icon]="'category'"
     [title]="'Actividad Económica'"
     [description]="'Clasificación de las actividades económicas de la Persona Natural.'"
-    [contenido]="contenidoActividad"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoActividad"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
   <plantilla-tarjeta-contenedora
     [icon]="'description'"
     [title]="'Portafolio y Capacidad de Entrega'"
     [description]="'Descripción de capacidades y servicios ofrecidos.'"
-    [contenido]="contenidoPortafolio"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoPortafolio"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
   <plantilla-tarjeta-contenedora
     [icon]="'gavel'"
     [title]="'Declaraciones y Consentimientos'"
     [description]="'Consentimiento expreso y declaración juramentada.'"
-    [contenido]="contenidoDeclaraciones"
-  ></plantilla-tarjeta-contenedora>
+  >
+    <ng-container *ngTemplateOutlet="contenidoDeclaraciones"></ng-container>
+  </plantilla-tarjeta-contenedora>
 
   <ng-template #contenidoActividad>
 <div class="paso4-actividad">

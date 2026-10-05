@@ -1,15 +1,8 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  TemplateRef,
-} from "@angular/core";
-import { SafeHtml } from "@angular/platform-browser";
+import { Component, Input } from "@angular/core";
 
 /**
  * Componente que actúa como una plantilla contenedora.
- * Permite mostrar un encabezado, un botón opcional, y contenido personalizado a través de un `TemplateRef`.
+ * Permite mostrar un encabezado, un botón opcional y contenido personalizado proyectado.
  */
 @Component({
     selector: "plantilla-tarjeta-contenedora",
@@ -39,16 +32,5 @@ export class PlantillaTarjetaContenedoraComponent {
    * @example "Mi Descripción Personalizada"
    */
    @Input() description: string = "";
-
-  /**
-   * Contenido dinámico que será renderizado dentro de la tarjeta.
-   * Debe ser un TemplateRef que se define en el componente padre.
-   * @example
-   * <ng-template #miTemplate>
-   *   <p>Este es el contenido dinámico</p>
-   * </ng-template>
-   * <plantilla-tarjeta-contenedora [contenido]="miTemplate"></plantilla-pagina-contenedora>
-   */
-  @Input() contenido!: TemplateRef<any>;
 
 }

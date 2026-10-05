@@ -35,24 +35,7 @@ export class StepperVisualComponent {
    * [{ numero: 1, nombre: "Datos personales", icono: "person" }, { numero: 2, nombre: "Información financiera", icono: "account_balance" }]
    * ```
    */
-  @Input() pasos: PasoStepperVisual[] = [
-    {
-      numero: 1,
-      nombre: "Identificación y Caracterización",
-    },
-    {
-      numero: 2,
-      nombre: "Afiliaciones y Finanzas",
-    },
-    {
-      numero: 3,
-      nombre: "Documentos y RUT",
-    },
-    {
-      numero: 4,
-      nombre: "Actividad y Declaración",
-    },
-  ];
+  @Input() pasos!: PasoStepperVisual[];
 
   /**
    * Selecciona un paso del stepper visual.

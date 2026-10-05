@@ -2,8 +2,9 @@
   [icon]="'person'"
   [title]="'Registro Único de Persona Natural'"
   [breadcrumb]="'<p>Gestión de Proveedores > <b>Persona Natural</b></p>'"
-  [contenido]="contenidoDePlantilla"
-></plantilla-pagina-contenedora>
+>
+  <ng-container *ngTemplateOutlet="contenidoDePlantilla"></ng-container>
+</plantilla-pagina-contenedora>
 
 <ng-template #contenidoDePlantilla>
 

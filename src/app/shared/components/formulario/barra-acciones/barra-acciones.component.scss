@@ -1,27 +1,21 @@
 :host {
   display: block;
-  width: 100%;
 }
 
 .barra-acciones {
-  position: relative;
-  left: auto;
-  right: auto;
-  bottom: auto;
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: calc(var(--footer-height, 4rem) + 1rem + env(safe-area-inset-bottom));
   z-index: 10;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-
-  width: 100%;
+  width: auto;
   max-width: 1380px;
   margin: 0 auto;
   padding: 1rem;
-
-  box-sizing: border-box;
-
   border: 1px solid rgb(105 16 27 / 8%);
   border-radius: 0.75rem;
   background: rgb(255 255 255 / 95%);
@@ -82,50 +76,13 @@
   gap: 0.5rem;
   min-height: 2.75rem;
   padding: 0.625rem 1rem;
-
   border: 0;
   border-radius: 0.5rem;
-
   font: inherit;
   font-size: 0.8125rem;
   font-weight: 700;
-
   cursor: pointer;
-
-  transition:
-    background-color 160ms ease,
-    box-shadow 160ms ease;
-}
-
-/*
- * Material Icons
- *
- * Se fuerza la tipografía para evitar que el nombre del icono
- * se renderice como texto dentro de la barra.
- */
-.barra-acciones mat-icon {
-  display: inline-block;
-
-  width: 1.5rem;
-  height: 1.5rem;
-
-  font-family: "Material Icons" !important;
-  font-size: 1.5rem;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-
-  letter-spacing: normal;
-  text-transform: none;
-  white-space: nowrap;
-  word-wrap: normal;
-
-  direction: ltr;
-
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: "liga";
-  font-variation-settings: normal;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 
 .boton-borrador {
@@ -163,9 +120,11 @@
 
 @media (max-width: 640px) {
   .barra-acciones {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: calc(var(--footer-height, 4rem) + 0.75rem + env(safe-area-inset-bottom));
     align-items: stretch;
     flex-direction: column;
-    width: 100%;
   }
 
   .acciones {
