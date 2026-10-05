@@ -1,0 +1,165 @@
+.rp-consentimiento--exito {
+  --cn-tono: var(--cn-exito);
+  --cn-tono-superficie: var(--cn-exito-superficie);
+  --cn-tono-contorno: var(--cn-exito-contorno);
+}
+
+.rp-consentimiento--error {
+  --cn-tono: var(--cn-error);
+  --cn-tono-superficie: var(--cn-error-superficie);
+  --cn-tono-contorno: var(--cn-error-contorno);
+}
+
+.rp-consentimiento--primario {
+  --cn-tono: var(--cn-primario-contenedor);
+  --cn-tono-superficie: var(--cn-superficie-baja);
+  --cn-tono-contorno: color-mix(in srgb, var(--cn-contorno) 40%, transparent);
+}
+
+.rp-consentimiento-cabecera {
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  background-color: var(--cn-tono-superficie);
+  border-bottom: 1px solid var(--cn-tono-contorno);
+}
+
+.rp-consentimiento-icono {
+  width: 48px;
+  height: 48px;
+  background-color: var(--cn-tono);
+  color: var(--cn-en-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.rp-consentimiento-icono mat-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.rp-consentimiento-titulos {
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rp-consentimiento-antetitulo {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  color: var(--cn-texto-variante);
+}
+
+.rp-consentimiento-titulo {
+  margin: 2px 0 0;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: var(--cn-tono);
+}
+
+.rp-consentimiento-cuerpo {
+  --mat-dialog-content-max-height: 52vh;
+
+  padding: 0 20px;
+  overflow-y: auto;
+}
+
+.rp-consentimiento-parrafo {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.625;
+  text-align: justify;
+  color: var(--cn-texto);
+}
+
+.rp-consentimiento-parrafo:last-child {
+  margin-bottom: 0;
+}
+
+.rp-consentimiento-enlace {
+  color: var(--cn-secundario);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease-in-out;
+}
+
+.rp-consentimiento-enlace:hover {
+  color: var(--cn-primario-contenedor);
+}
+
+.rp-consentimiento-enlace:focus-visible {
+  outline: 2px solid var(--cn-secundario);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.rp-consentimiento-acciones {
+  gap: 12px;
+  padding: 20px;
+  border-top: 1px solid color-mix(in srgb, var(--cn-contorno) 30%, transparent);
+}
+
+.rp-consentimiento-boton {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--cn-contorno);
+  color: var(--cn-primario);
+  background-color: var(--cn-superficie);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .rp-consentimiento-boton {
+    width: auto;
+    min-width: 160px;
+  }
+}
+
+.rp-consentimiento-boton:hover {
+  background-color: var(--cn-superficie-baja);
+  border-color: color-mix(in srgb, var(--cn-primario-contenedor) 60%, transparent);
+}
+
+.rp-consentimiento-boton:active {
+  transform: scale(0.98);
+}
+
+.rp-consentimiento-boton:focus-visible {
+  outline: 3px solid var(--cn-secundario);
+  outline-offset: 3px;
+}
+
+.rp-consentimiento-boton mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.rp-consentimiento-boton--destacado,
+.rp-consentimiento-boton--destacado:hover {
+  border-color: var(--cn-tono);
+  color: var(--cn-en-primary);
+  background-color: var(--cn-tono);
+}
+
+.rp-consentimiento-boton--destacado:hover {
+  filter: saturate(60%);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-consentimiento-boton {
+    transition: none;
+  }
+
+  .rp-consentimiento-boton:active {
+    transform: none;
+  }
+}
