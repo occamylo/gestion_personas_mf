@@ -45,7 +45,7 @@
 
   <div class="paso3-rut-documento">
 
-    @if (!rutArchivoNombre) {
+    @if (!documentosForm.get("rutArchivo")?.value) {
 
       <div class="paso3-rut-vacio">
 
@@ -89,7 +89,7 @@
           <div class="paso3-rut-cargado__contenido">
 
             <div class="paso3-rut-cargado__nombre">
-              <span>{{ rutArchivoNombre }}</span>
+              <span>{{ documentosForm.get("rutArchivo")?.value?.name }}</span>
             </div>
 
           </div>
@@ -194,7 +194,10 @@
         <div class="paso3-rup-documento__contenido">
 
           <span class="paso3-rup-documento__nombre">
-            {{ certificadoRupNombre || "Sin certificado RUP cargado" }}
+            {{
+              documentosForm.get("certificadoRup")?.value?.name ||
+                "Sin certificado RUP cargado"
+            }}
           </span>
 
           <div class="paso3-rup-datos">
@@ -234,7 +237,7 @@
         <button
           class="paso3-rup-boton"
           type="button"
-          [disabled]="!certificadoRupNombre"
+          [disabled]="!documentosForm.get('certificadoRup')?.value"
           (click)="visualizarRup()"
         >
           <mat-icon>visibility</mat-icon>
@@ -244,7 +247,11 @@
         <label class="paso3-rup-boton paso3-rup-boton--reemplazar">
           <mat-icon>cached</mat-icon>
           <span>
-            {{ certificadoRupNombre ? "Reemplazar" : "Cargar certificado" }}
+            {{
+              documentosForm.get("certificadoRup")?.value
+                ? "Reemplazar"
+                : "Cargar certificado"
+            }}
           </span>
 
           <input

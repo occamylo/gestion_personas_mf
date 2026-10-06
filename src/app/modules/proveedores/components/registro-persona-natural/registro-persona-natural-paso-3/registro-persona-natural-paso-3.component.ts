@@ -27,12 +27,6 @@ export class RegistroPersonaNaturalPaso3Component {
   @Output()
   solicitarPersistencia = new EventEmitter<boolean>();
 
-  rutArchivoNombre = '';
-  private rutArchivo: File | null = null;
-
-  certificadoRupNombre = '';
-  private certificadoRup: File | null = null;
-
   onRutArchivoSeleccionado(evento: Event): void {
     const input = evento.target as HTMLInputElement;
     const archivo = input.files?.[0] ?? null;
@@ -41,8 +35,14 @@ export class RegistroPersonaNaturalPaso3Component {
       return;
     }
 
-    this.rutArchivo = archivo;
-    this.rutArchivoNombre = archivo.name;
+    if (!this.esPdfValido(archivo)) {
+      this.emitirEstado(
+        "Archivo no válido",
+        "El RUT debe cargarse en formato PDF.",
+      );
+      input.value = "";
+      return;
+    }
 
     this.documentosForm.patchValue({
       rutArchivo: archivo,
@@ -56,27 +56,35 @@ export class RegistroPersonaNaturalPaso3Component {
     this.solicitarPersistencia.emit(true);
   }
 
+  private esPdfValido(archivo: File): boolean {
+    return archivo.type === "application/pdf";
+  }
+
   visualizarRut(): void {
-    if (!this.rutArchivo) {
+    const archivo = this.documentosForm.get("rutArchivo")?.value as File | null;
+
+    if (!archivo) {
       return;
     }
 
-    const url = URL.createObjectURL(this.rutArchivo);
-    window.open(url, '_blank', 'noopener,noreferrer');
+    const url = URL.createObjectURL(archivo);
+    window.open(url, "_blank", "noopener,noreferrer");
 
     setTimeout(() => URL.revokeObjectURL(url), 60_000);
   }
 
   descargarRut(): void {
-    if (!this.rutArchivo) {
+    const archivo = this.documentosForm.get("rutArchivo")?.value as File | null;
+
+    if (!archivo) {
       return;
     }
 
-    const url = URL.createObjectURL(this.rutArchivo);
-    const enlace = document.createElement('a');
+    const url = URL.createObjectURL(archivo);
+    const enlace = document.createElement("a");
 
     enlace.href = url;
-    enlace.download = this.rutArchivo.name;
+    enlace.download = archivo.name;
     enlace.click();
 
     setTimeout(() => URL.revokeObjectURL(url), 1_000);
@@ -92,9 +100,6 @@ export class RegistroPersonaNaturalPaso3Component {
     });
 
     if (nuevoValor === 'no') {
-      this.certificadoRup = null;
-      this.certificadoRupNombre = '';
-
       this.documentosForm.patchValue({
         certificadoRup: null,
       });
@@ -111,8 +116,14 @@ export class RegistroPersonaNaturalPaso3Component {
       return;
     }
 
-    this.certificadoRup = archivo;
-    this.certificadoRupNombre = archivo.name;
+    if (!this.esPdfValido(archivo)) {
+      this.emitirEstado(
+        "Archivo no válido",
+        "El certificado RUP debe cargarse en formato PDF.",
+      );
+      input.value = "";
+      return;
+    }
 
     this.documentosForm.patchValue({
       certificadoRup: archivo,
@@ -127,12 +138,15 @@ export class RegistroPersonaNaturalPaso3Component {
   }
 
   visualizarRup(): void {
-    if (!this.certificadoRup) {
+    const archivo =
+      this.documentosForm.get("certificadoRup")?.value as File | null;
+
+    if (!archivo) {
       return;
     }
 
-    const url = URL.createObjectURL(this.certificadoRup);
-    window.open(url, '_blank', 'noopener,noreferrer');
+    const url = URL.createObjectURL(archivo);
+    window.open(url, "_blank", "noopener,noreferrer");
 
     setTimeout(() => URL.revokeObjectURL(url), 60_000);
   }

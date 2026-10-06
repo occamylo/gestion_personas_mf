@@ -18,6 +18,10 @@ import { BorradorRegistroService } from "../../services/borrador-registro.servic
   standalone: false,
 })
 export class RegistroPersonaNaturalComponent implements OnInit, AfterViewInit {
+  private static readonly SOLO_DIGITOS = /^\d+$/;
+  private static readonly ALFANUMERICO = /^[A-Za-z0-9]+$/;
+  private static readonly TELEFONO =
+    /^\+?\d[\d\s().-]*(?:Ext\.\s*\d+)?$/;
   private readonly destroyRef = inject(DestroyRef);
   private readonly borradorRegistroService = inject(BorradorRegistroService);
   private readonly elementRef = inject(ElementRef<HTMLElement>);
@@ -267,8 +271,24 @@ export class RegistroPersonaNaturalComponent implements OnInit, AfterViewInit {
             [Validators.required, Validators.email],
           ],
 
-          telefonoCelular: ["", Validators.required],
-          otroContacto: ["", Validators.required],
+          telefonoCelular: [
+            "",
+            [
+              Validators.required,
+              Validators.pattern(
+                RegistroPersonaNaturalComponent.TELEFONO,
+              ),
+            ],
+          ],
+          otroContacto: [
+            "",
+            [
+              Validators.required,
+              Validators.pattern(
+                RegistroPersonaNaturalComponent.TELEFONO,
+              ),
+            ],
+          ],
 
           extensionTelefonica: [""],
 
@@ -373,6 +393,13 @@ export class RegistroPersonaNaturalComponent implements OnInit, AfterViewInit {
     // =========================================================
 
     this.personaNaturalForm
+      .get("identificacion.tipoDocumento")
+      ?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.sincronizarValidadoresDocumento();
+      });
+
+    this.personaNaturalForm
       .get("caracterizacion.tieneHijos")
       ?.valueChanges.subscribe((tieneHijos) => {
         const numeroHijos = this.personaNaturalForm.get(
@@ -404,151 +431,6 @@ export class RegistroPersonaNaturalComponent implements OnInit, AfterViewInit {
   // =========================================================
   // PASO 3 - DOCUMENTOS
   // =========================================================
-
-  get rutArchivoNombre(): string {
-    const valor = this.documentosForm.get("rutArchivo")?.value;
-
-    if (
-      valor &&
-      typeof valor === "object" &&
-      "name" in valor &&
-      typeof valor.name === "string"
-    ) {
-      return valor.name;
-    }
-
-    return "";
-  }
-
-  onRutArchivoSeleccionado(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const archivo = input.files?.[0] ?? null;
-
-    if (!archivo) {
-      return;
-    }
-
-    if (archivo.type !== "application/pdf") {
-      this.estadoMensaje = "Archivo no válido";
-      this.estadoDetalle = "El RUT debe cargarse en formato PDF.";
-      input.value = "";
-      return;
-    }
-
-    this.documentosForm.get("rutArchivo")?.setValue(archivo);
-    this.documentosForm.get("rutArchivo")?.markAsDirty();
-    this.documentosForm.get("rutArchivo")?.updateValueAndValidity();
-
-    this.estadoMensaje = "RUT cargado";
-    this.estadoDetalle = archivo.name;
-
-    this.persistirBorrador(true);
-    input.value = "";
-  }
-
-  visualizarRut(): void {
-    const archivo = this.documentosForm.get("rutArchivo")?.value;
-
-    if (!(archivo instanceof File)) {
-      return;
-    }
-
-    const url = URL.createObjectURL(archivo);
-    window.open(url, "_blank", "noopener,noreferrer");
-
-    setTimeout(() => URL.revokeObjectURL(url), 60_000);
-  }
-
-  descargarRut(): void {
-    const archivo = this.documentosForm.get("rutArchivo")?.value;
-
-    if (!(archivo instanceof File)) {
-      return;
-    }
-
-    const url = URL.createObjectURL(archivo);
-    const enlace = document.createElement("a");
-
-    enlace.href = url;
-    enlace.download = archivo.name;
-    enlace.click();
-
-    setTimeout(() => URL.revokeObjectURL(url), 1_000);
-  }
-
-  // =========================================================
-  // PASO 3 - RUP
-  // =========================================================
-
-  get certificadoRupNombre(): string {
-    const valor = this.documentosForm.get("certificadoRup")?.value;
-
-    if (
-      valor &&
-      typeof valor === "object" &&
-      "name" in valor &&
-      typeof valor.name === "string"
-    ) {
-      return valor.name;
-    }
-
-    return "";
-  }
-
-  alternarAplicaRup(): void {
-    const control = this.documentosForm.get("aplicaRup");
-    const valorActual = control?.value;
-
-    control?.setValue(
-      valorActual === "si"
-        ? "no"
-        : "si",
-    );
-
-    control?.markAsDirty();
-    control?.updateValueAndValidity();
-
-    this.persistirBorrador(true);
-  }
-
-  onCertificadoRupSeleccionado(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const archivo = input.files?.[0] ?? null;
-
-    if (!archivo) {
-      return;
-    }
-
-    if (archivo.type !== "application/pdf") {
-      this.estadoMensaje = "Archivo no válido";
-      this.estadoDetalle = "El certificado RUP debe cargarse en formato PDF.";
-      input.value = "";
-      return;
-    }
-
-    this.documentosForm.get("certificadoRup")?.setValue(archivo);
-    this.documentosForm.get("certificadoRup")?.markAsDirty();
-    this.documentosForm.get("certificadoRup")?.updateValueAndValidity();
-
-    this.estadoMensaje = "Certificado RUP cargado";
-    this.estadoDetalle = archivo.name;
-
-    this.persistirBorrador(true);
-    input.value = "";
-  }
-
-  visualizarRup(): void {
-    const archivo = this.documentosForm.get("certificadoRup")?.value;
-
-    if (!(archivo instanceof File)) {
-      return;
-    }
-
-    const url = URL.createObjectURL(archivo);
-    window.open(url, "_blank", "noopener,noreferrer");
-
-    setTimeout(() => URL.revokeObjectURL(url), 60_000);
-  }
 
   // =========================================================
   // NAVEGACIÓN
@@ -766,7 +648,46 @@ export class RegistroPersonaNaturalComponent implements OnInit, AfterViewInit {
     this.actualizarEstadoGuardado(borrador.savedAt, true);
   }
 
+  private sincronizarValidadoresDocumento(): void {
+    const tipoDocumento = this.personaNaturalForm.get(
+      "identificacion.tipoDocumento",
+    )?.value;
+
+    const numeroDocumento = this.personaNaturalForm.get(
+      "identificacion.numeroDocumento",
+    );
+
+    const confirmarNumeroDocumento = this.personaNaturalForm.get(
+      "identificacion.confirmarNumeroDocumento",
+    );
+
+    const validator =
+      tipoDocumento === "CC" || tipoDocumento === "CE"
+        ? Validators.pattern(RegistroPersonaNaturalComponent.SOLO_DIGITOS)
+        : Validators.pattern(RegistroPersonaNaturalComponent.ALFANUMERICO);
+
+    numeroDocumento?.setValidators([
+      Validators.required,
+      validator,
+    ]);
+
+    confirmarNumeroDocumento?.setValidators([
+      Validators.required,
+      validator,
+    ]);
+
+    numeroDocumento?.updateValueAndValidity({
+      emitEvent: false,
+    });
+
+    confirmarNumeroDocumento?.updateValueAndValidity({
+      emitEvent: false,
+    });
+  }
+
   private sincronizarValidadoresCondicionales(): void {
+    this.sincronizarValidadoresDocumento();
+
     const tieneHijos = this.personaNaturalForm.get(
       "caracterizacion.tieneHijos",
     )?.value;

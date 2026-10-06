@@ -312,7 +312,12 @@
             type="text"
             formControlName="numeroDocumento"
             placeholder="Número de documento"
-            inputmode="numeric"
+            [attr.inputmode]="
+              identificacionForm.get('tipoDocumento')?.value === 'CC' ||
+              identificacionForm.get('tipoDocumento')?.value === 'CE'
+                ? 'numeric'
+                : 'text'
+            "
           />
 
           @if (
@@ -321,6 +326,15 @@
           ) {
             <small class="field-error">
               Este campo es obligatorio.
+            </small>
+          }
+
+          @if (
+            identificacionForm.get("numeroDocumento")?.touched &&
+            identificacionForm.get("numeroDocumento")?.hasError("pattern")
+          ) {
+            <small class="field-error">
+              El número de documento no tiene un formato válido para el tipo seleccionado.
             </small>
           }
 
@@ -338,7 +352,12 @@
             type="text"
             formControlName="confirmarNumeroDocumento"
             placeholder="Confirme el documento"
-            inputmode="numeric"
+            [attr.inputmode]="
+              identificacionForm.get('tipoDocumento')?.value === 'CC' ||
+              identificacionForm.get('tipoDocumento')?.value === 'CE'
+                ? 'numeric'
+                : 'text'
+            "
           />
 
           @if (
@@ -347,6 +366,15 @@
           ) {
             <small class="field-error">
               Este campo es obligatorio.
+            </small>
+          }
+
+          @if (
+            identificacionForm.get("confirmarNumeroDocumento")?.touched &&
+            identificacionForm.get("confirmarNumeroDocumento")?.hasError("pattern")
+          ) {
+            <small class="field-error">
+              El número de documento no tiene un formato válido para el tipo seleccionado.
             </small>
           }
 
@@ -1861,6 +1889,13 @@
         ) {
           <mat-error>Este campo es obligatorio.</mat-error>
         }
+
+        @if (
+          contactoForm.get("telefonoCelular")?.touched &&
+          contactoForm.get("telefonoCelular")?.hasError("pattern")
+        ) {
+          <mat-error>El número de celular no tiene un formato válido.</mat-error>
+        }
       </mat-form-field>
     </div>
 
@@ -1888,6 +1923,13 @@
           contactoForm.get("otroContacto")?.hasError("required")
         ) {
           <mat-error>Este campo es obligatorio.</mat-error>
+        }
+
+        @if (
+          contactoForm.get("otroContacto")?.touched &&
+          contactoForm.get("otroContacto")?.hasError("pattern")
+        ) {
+          <mat-error>El número de contacto no tiene un formato válido.</mat-error>
         }
       </mat-form-field>
     </div>
