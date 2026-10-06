@@ -1,0 +1,3186 @@
+/* Estilos del formulario Persona Natural - Paso 1 */
+
+/* =========================================================
+   BANNER DEL PASO
+   ========================================================= */
+
+.step-banner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+
+  width: min(100% - 3rem, 86.25rem);
+  box-sizing: border-box;
+  margin: 0 auto 1.5rem;
+  padding: 1.5rem 1.75rem;
+
+  border: 1px solid var(--agora-border);
+  border-radius: 0.75rem;
+
+  background: var(--agora-background);
+  box-shadow: 0 1px 3px rgba(105, 16, 27, 0.08);
+}
+
+.step-banner__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 4rem;
+
+  border-radius: 0.5rem;
+  background: #f8e7e8;
+  color: var(--agora-primary);
+}
+
+.step-banner__icon mat-icon {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+}
+
+.step-banner__content {
+  min-width: 0;
+}
+
+.step-banner__headline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.step-banner__headline h2 {
+  margin: 0;
+
+  color: var(--agora-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.step-banner__tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.25rem;
+
+  background: #f8e7e8;
+  color: var(--agora-primary);
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.step-banner__description {
+  margin: 0;
+
+  color: var(--agora-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.form-section {
+  padding: 4px 0;
+}
+
+.form-section__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.form-section__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 9px;
+  background: #f8e7e8;
+  color: var(--agora-primary);
+}
+
+.form-section__icon .material-symbols-outlined {
+  font-size: 21px;
+}
+
+.form-section__header h3 {
+  margin: 0 0 4px;
+  color: var(--agora-primary);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-section__header p {
+  margin: 0;
+  color: var(--agora-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px;
+}
+
+.form-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.form-grid--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   CAMPOS NATIVOS
+   ========================================================= */
+
+.form-field,
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.form-field label,
+.field label {
+  display: block;
+  width: 100%;
+  margin-bottom: 7px;
+  color: var(--agora-text);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.form-field label span,
+.field label span {
+  color: var(--agora-primary);
+}
+
+mat-label {
+  font-size: 11.5px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea,
+.field input,
+.field select,
+.field textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--agora-background);
+  color: var(--agora-text);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.form-field textarea,
+.field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus,
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  box-shadow: 0 0 0 2px rgba(105, 16, 27, 0.18);
+}
+
+.form-field input.ng-invalid.ng-touched,
+.form-field select.ng-invalid.ng-touched,
+.form-field textarea.ng-invalid.ng-touched,
+.field input.ng-invalid.ng-touched,
+.field select.ng-invalid.ng-touched,
+.field textarea.ng-invalid.ng-touched {
+  border-color: #b3261e;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder,
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--agora-text-muted);
+  opacity: 0.8;
+}
+
+.field--small {
+  max-width: 180px;
+}
+
+.field-error {
+  display: block;
+  margin-top: 5px;
+  color: #b3261e;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   COMPONENTES MATERIAL
+   ========================================================= */
+
+mat-form-field {
+  width: 100%;
+}
+
+
+/* =========================================================
+   SUBSECCIONES DEL FORMULARIO
+   ========================================================= */
+
+.form-subsection {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--agora-border);
+}
+
+.form-subsection > h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 32px;
+}
+
+.form-subsection__title .material-symbols-outlined {
+  color: var(--agora-primary);
+  font-size: 20px;
+}
+
+.form-subsection__title h4 {
+  margin: 0;
+  color: var(--agora-text);
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   CONSTRUCTOR DE DIRECCIÓN
+   ========================================================= */
+
+.address-builder {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding: 20px;
+  border: 1px solid var(--agora-border);
+  border-radius: 10px;
+  background: #faf7f7;
+}
+
+.address-builder__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.address-builder__header mat-icon {
+  flex: 0 0 auto;
+  color: var(--agora-primary);
+}
+
+.address-builder__header h3 {
+  margin: 0 0 4px;
+  color: var(--agora-text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.address-builder__header p {
+  margin: 0;
+  color: var(--agora-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.address-builder__example {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--agora-primary);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--agora-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.address-builder__example mat-icon {
+  flex: 0 0 auto;
+  color: var(--agora-primary);
+  font-size: 18px;
+}
+
+
+
+
+@media (max-width: 700px) {
+  .step-banner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .step-banner__headline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .step-banner__icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-basis: 3.25rem;
+  }
+
+  .step-banner__description {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE MÓVIL
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .form-grid--four,
+  .form-grid--five {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .step-banner {
+    padding: 16px;
+  }
+
+  .form-grid,
+  .form-grid--four,
+  .form-grid--five {
+    grid-template-columns: 1fr;
+  }
+
+  .field--small {
+    max-width: none;
+  }
+
+  .address-builder {
+    padding: 16px;
+  }
+}
+
+/* =========================================================
+   ALINEACIÓN DE MÓDULOS CON EL CONTENEDOR DE PÁGINA
+   ========================================================= */
+
+plantilla-tarjeta-contenedora {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 40rem) {
+  plantilla-tarjeta-contenedora {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* =========================================================
+   TIPO DE PERSONA
+   ========================================================= */
+
+plantilla-tarjeta-contenedora.tarjeta-identificacion {
+  position: relative;
+}
+
+.tipo-persona-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  padding: 0.45rem 0.7rem;
+
+  border-radius: 999px;
+  background: #f8e7e8;
+
+  color: var(--agora-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tipo-persona-badge strong {
+  padding: 0.2rem 0.5rem;
+
+  border-radius: 999px;
+  background: #f1d4d6;
+  color: var(--agora-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .tipo-persona-badge {
+    position: static;
+    margin: 0 0 1rem auto;
+    width: fit-content;
+  }
+}
+
+/* =========================================================
+   CAMPOS ANGULAR MATERIAL
+   ========================================================= */
+
+:host ::ng-deep .mat-mdc-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: var(--agora-background) !important;
+  border-radius: 8px;
+}
+
+:host ::ng-deep .mdc-notched-outline {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .mdc-notched-outline__leading,
+:host ::ng-deep .mdc-notched-outline__notch,
+:host ::ng-deep .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field:hover .mdc-notched-outline,
+:host ::ng-deep .mat-mdc-form-field:hover .mdc-notched-outline__leading,
+:host ::ng-deep .mat-mdc-form-field:hover .mdc-notched-outline__notch,
+:host ::ng-deep .mat-mdc-form-field:hover .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field.mat-focused
+  .mat-mdc-text-field-wrapper {
+  box-shadow: 0 0 0 2px rgba(105, 16, 27, 0.18);
+}
+
+:host ::ng-deep .mat-mdc-form-field .mat-mdc-floating-label {
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-form-field input {
+  color: var(--agora-text);
+}
+
+
+/* =========================================================
+   CARACTERIZACIÓN — GRILLA DEL MOCKUP
+   ========================================================= */
+
+.caracterizacion-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+
+/* Labels de Caracterización — continuidad visual */
+:host ::ng-deep .caracterizacion-grid .mat-mdc-form-field {
+  position: relative;
+  min-height: 0;
+  padding-top: 16px;
+}
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-text-field-wrapper {
+  margin-top: 2px;
+  overflow: visible !important;
+}
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-floating-label {
+  top: 0 !important;
+  left: 0 !important;
+
+  transform: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: var(--agora-text) !important;
+
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* Texto de los valores */
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value,
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text,
+:host ::ng-deep .caracterizacion-grid .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+/* Campos más bajos */
+:host ::ng-deep .caracterizacion-grid .mat-mdc-text-field-wrapper {
+  min-height: 40px;
+  height: 40px;
+}
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-form-field-infix {
+  min-height: 40px;
+  padding-top: 7px;
+  padding-bottom: 4px;
+}
+
+/* El campo de discapacidad ocupa dos columnas */
+.caracterizacion-grid > mat-form-field:last-of-type {
+  grid-column: span 2;
+}
+
+/* Hijos: selector + cantidad dentro de la misma columna */
+.campo-hijos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 0.55fr;
+  gap: 8px;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .caracterizacion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .caracterizacion-grid > mat-form-field:last-of-type {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .caracterizacion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .caracterizacion-grid > mat-form-field:last-of-type {
+    grid-column: auto;
+  }
+}
+
+
+:host ::ng-deep .caracterizacion-grid
+  .mat-mdc-form-field.mat-focused
+  .mat-mdc-floating-label,
+:host ::ng-deep .caracterizacion-grid
+  .mdc-floating-label--float-above {
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  color: var(--agora-text) !important;
+}
+
+
+/* =========================================================
+   CARACTERIZACIÓN — LABELS EXTERNOS
+   ========================================================= */
+
+.caracterizacion-grid .material-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.caracterizacion-grid .material-field__label {
+  display: block;
+  width: 100%;
+  margin-bottom: 7px;
+
+  color: var(--agora-text);
+
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.caracterizacion-grid .material-field__label .required {
+  color: var(--agora-primary);
+}
+
+:host ::ng-deep .caracterizacion-grid .material-field
+  > .mat-mdc-form-field {
+  min-height: 40px !important;
+  padding-top: 0 !important;
+}
+
+:host ::ng-deep .caracterizacion-grid .material-field
+  .mat-mdc-floating-label {
+  display: none !important;
+}
+
+:host ::ng-deep .caracterizacion-grid .material-field
+  .mat-mdc-text-field-wrapper {
+  min-height: 40px;
+  height: 40px;
+}
+
+
+/* =========================================================
+   AVISO LEGAL — CARACTERIZACIÓN
+   ========================================================= */
+
+.aviso-legal-caracterizacion {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+
+  width: min(calc(100% - 3rem), 86.25rem);
+  box-sizing: border-box;
+  margin: 0 auto 1.5rem;
+  padding: 1.1rem 1.35rem;
+
+  border-radius: 0.65rem;
+
+  background: #fff9e9;
+}
+
+.aviso-legal-caracterizacion__icon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  color: #a95f00;
+
+  mat-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+.aviso-legal-caracterizacion__headline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+
+  margin-bottom: 0.35rem;
+}
+
+.aviso-legal-caracterizacion__headline h3 {
+  margin: 0;
+
+  color: #8a4700;
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.aviso-legal-caracterizacion__tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.22rem 0.55rem;
+
+  border-radius: 999px;
+
+  background: #f4d98f;
+  color: #7a4700;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.aviso-legal-caracterizacion__content p {
+  margin: 0;
+
+  color: #734f2c;
+
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.aviso-legal-caracterizacion__content strong {
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .aviso-legal-caracterizacion {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 1rem;
+  }
+
+  .aviso-legal-caracterizacion__headline {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   AYUDA DEL CAMPO PEP
+   ========================================================= */
+
+.material-field__label .campo-ayuda {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  margin-left: 3px;
+
+  vertical-align: middle;
+
+  color: var(--agora-text-muted);
+  font-size: 14px;
+  line-height: 14px;
+}
+
+
+/* =========================================================
+   AYUDA AL FINAL DE CARACTERIZACIÓN
+   ========================================================= */
+
+.campo-ayuda-final {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 12px;
+}
+
+.campo-ayuda-final mat-icon {
+  width: 18px;
+  height: 18px;
+
+  color: var(--agora-text-muted);
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   AYUDA DEL CAMPO PEP
+   ========================================================= */
+
+.material-field__label--ayuda {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.material-field__label--ayuda > span:first-child {
+  min-width: 0;
+}
+
+.material-field__label--ayuda .campo-ayuda {
+  flex: 0 0 auto;
+
+  width: 18px;
+  height: 18px;
+  margin: 0;
+
+  color: var(--agora-text-muted);
+  font-size: 18px;
+  line-height: 18px;
+}
+
+
+/* =========================================================
+   EXPERIENCIA PARA CALIFICACIÓN CONTRACTUAL
+   ========================================================= */
+
+.experiencia-contractual {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--agora-border);
+}
+
+.experiencia-contractual > h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0 0 20px;
+
+  color: var(--agora-text);
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.experiencia-contractual > h3 mat-icon {
+  width: 20px;
+  height: 20px;
+
+  color: var(--agora-primary);
+  font-size: 20px;
+}
+
+.experiencia-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.experiencia-grid .material-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.experiencia-grid .material-field__label {
+  display: block;
+  width: 100%;
+  margin-bottom: 7px;
+
+  color: var(--agora-text);
+
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.experiencia-grid .required {
+  color: var(--agora-primary);
+}
+
+:host ::ng-deep .experiencia-grid .mat-mdc-form-field {
+  width: 100%;
+  min-height: 40px;
+  padding-top: 0 !important;
+}
+
+:host ::ng-deep .experiencia-grid .mat-mdc-text-field-wrapper {
+  height: 40px;
+  min-height: 40px;
+  background-color: var(--agora-background) !important;
+}
+
+:host ::ng-deep .experiencia-grid .mat-mdc-form-field-infix {
+  min-height: 40px;
+  padding-top: 7px;
+  padding-bottom: 4px;
+}
+
+:host ::ng-deep .experiencia-grid .mdc-notched-outline,
+:host ::ng-deep .experiencia-grid .mdc-notched-outline__leading,
+:host ::ng-deep .experiencia-grid .mdc-notched-outline__notch,
+:host ::ng-deep .experiencia-grid .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .experiencia-grid .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .experiencia-grid .mat-focused
+  .mat-mdc-text-field-wrapper {
+  box-shadow: 0 0 0 2px rgba(105, 16, 27, 0.18);
+}
+
+@media (max-width: 700px) {
+  .experiencia-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   EXPERIENCIA — FORMATO DEL MOCKUP
+   ========================================================= */
+
+.experiencia-contractual {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--agora-border);
+}
+
+.experiencia-contractual > h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0 0 20px;
+
+  color: var(--agora-primary);
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.experiencia-contractual > h3 mat-icon {
+  width: 20px;
+  height: 20px;
+
+  color: var(--agora-primary);
+  font-size: 20px;
+}
+
+.experiencia-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.experiencia-card {
+  min-width: 0;
+  padding: 28px 30px 26px;
+
+  border-radius: 14px;
+  background: #fdf1f1;
+}
+
+.experiencia-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-bottom: 14px;
+}
+
+.experiencia-card__label {
+  margin: 0;
+
+  color: var(--agora-text);
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.experiencia-card__label .required {
+  color: var(--agora-primary);
+}
+
+.experiencia-card__equivalencia {
+  flex: 0 0 auto;
+
+  color: var(--agora-text-muted);
+
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.experiencia-card__field {
+  width: 100%;
+  margin: 0;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-text-field-wrapper {
+  height: 68px;
+  min-height: 68px;
+
+  border-radius: 8px;
+  background: #ffffff !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mdc-notched-outline,
+:host ::ng-deep .experiencia-card__field .mdc-notched-outline__leading,
+:host ::ng-deep .experiencia-card__field .mdc-notched-outline__notch,
+:host ::ng-deep .experiencia-card__field .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-infix {
+  min-height: 68px;
+  padding-top: 14px;
+  padding-bottom: 8px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-input-element {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-icon-prefix {
+  padding-right: 12px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-icon-prefix mat-icon {
+  color: var(--agora-text-muted);
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-text-suffix {
+  padding-left: 12px;
+
+  color: var(--agora-text-muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.experiencia-card__description {
+  margin: 14px 0 0;
+
+  color: var(--agora-text-muted);
+
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .experiencia-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experiencia-card__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 700px) {
+  .experiencia-card {
+    padding: 22px 18px;
+  }
+
+  .experiencia-card__label {
+    font-size: 13px;
+  }
+
+  .experiencia-card__equivalencia {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   EXPERIENCIA — AJUSTE FINAL SEGÚN MOCKUP
+   ========================================================= */
+
+.experiencia-grid {
+  gap: 16px;
+}
+
+.experiencia-card {
+  padding: 18px 18px 16px;
+  border-radius: 10px;
+  background: #d9aeb5;
+}
+
+.experiencia-card__header {
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.experiencia-card__label {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.experiencia-card__equivalencia {
+  font-size: 11px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-text-field-wrapper {
+  height: 46px !important;
+  min-height: 46px !important;
+  border-radius: 7px;
+  background: #fff !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-infix {
+  min-height: 46px !important;
+  padding-top: 8px !important;
+  padding-bottom: 5px !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-input-element {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-text-suffix {
+  padding-left: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-icon-prefix {
+  padding-right: 8px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-icon-prefix mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.experiencia-card__description {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Mostrar controles de incremento/decremento en los campos numéricos */
+:host ::ng-deep .experiencia-card__field input[type="number"] {
+  -webkit-appearance: auto !important;
+  appearance: auto !important;
+}
+
+:host ::ng-deep .experiencia-card__field input[type="number"]::-webkit-inner-spin-button {
+  opacity: 1 !important;
+  display: block !important;
+  margin: 0;
+}
+
+:host ::ng-deep .experiencia-card__field input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1 !important;
+  display: block !important;
+}
+
+@media (max-width: 700px) {
+  .experiencia-card {
+    padding: 16px;
+  }
+
+  .experiencia-card__header {
+    margin-bottom: 9px;
+  }
+}
+
+
+/* =========================================================
+   EXPERIENCIA — AJUSTE FINO CONTRA MOCKUP
+   ========================================================= */
+
+.experiencia-card {
+  padding: 16px 18px 14px;
+  border-radius: 10px;
+  background: #fff5f5 !important;
+}
+
+.experiencia-card__header {
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.experiencia-card__label {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.experiencia-card__equivalencia {
+  font-size: 10px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+  min-height: 40px !important;
+  border-radius: 6px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-infix {
+  min-height: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-input-element {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-icon-prefix {
+  padding-right: 6px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-icon-prefix mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-form-field-text-suffix {
+  padding-left: 6px;
+}
+
+.experiencia-card__unit {
+  font-size: 11px;
+}
+
+.experiencia-card__description {
+  margin-top: 7px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* Flechas de incremento/decremento más compactas */
+.experiencia-card__spin-buttons {
+  width: 12px;
+  height: 22px;
+}
+
+.experiencia-card__spin-button {
+  width: 12px;
+  height: 11px;
+  font-size: 7px;
+  line-height: 7px;
+}
+
+
+/* Ajuste de unidad MESES */
+.experiencia-card__unit {
+  font-size: 9px !important;
+  font-weight: 700;
+}
+
+
+/* Tamaño exacto de MESES dentro del suffix de Experiencia */
+:host ::ng-deep .experiencia-card__field
+  .mat-mdc-form-field-text-suffix
+  .experiencia-card__unit {
+  font-size: 10px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+}
+
+
+.experiencia-card__unit {
+  font-size: 9px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+}
+
+
+.experiencia-card__unit {
+  position: relative;
+  left: -5px;
+}
+
+
+.experiencia-card__field input[type="number"]::-webkit-inner-spin-button {
+  margin-right: 6px;
+}
+
+
+/* =========================================================
+   SPINNERS — VISIBLES SOLO AL PASAR EL MOUSE
+   ========================================================= */
+
+.experiencia-card__field input[type="number"]::-webkit-inner-spin-button,
+.experiencia-card__field input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.experiencia-card:hover
+  .experiencia-card__field
+  input[type="number"]::-webkit-inner-spin-button,
+.experiencia-card:hover
+  .experiencia-card__field
+  input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.experiencia-card:focus-within
+  .experiencia-card__field
+  input[type="number"]::-webkit-inner-spin-button,
+.experiencia-card:focus-within
+  .experiencia-card__field
+  input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+
+/* Spinner nativo: oculto, usaremos controles propios */
+:host ::ng-deep .experiencia-card__field input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+:host ::ng-deep .experiencia-card__field input[type="number"]::-webkit-inner-spin-button,
+:host ::ng-deep .experiencia-card__field input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+
+/* =========================================================
+   BOTONES DE MESES — VERTICAL
+   ========================================================= */
+
+.experiencia-card__suffix {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.experiencia-card__spin-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 12px;
+  height: 24px;
+}
+
+.experiencia-card__spin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 12px;
+  height: 12px;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--agora-text-muted);
+
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 7px;
+
+  cursor: pointer;
+}
+
+.experiencia-card__spin-button:hover {
+  color: var(--agora-primary);
+}
+
+
+/* =========================================================
+   BOTONES DE MESES — SOLO CON HOVER
+   ========================================================= */
+
+.experiencia-card__spin-buttons {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease;
+}
+
+.experiencia-card:hover .experiencia-card__spin-buttons {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* PRUEBA TEMPORAL DE COLOR */
+.experiencia-card {
+  background: #00ff00 !important;
+}
+
+
+.experiencia-card {
+  background: #d8a5ad !important;
+}
+
+
+.experiencia-card {
+  background: #e7c1c6 !important;
+}
+
+
+.experiencia-card {
+  background: #FFC0CB !important;
+}
+
+
+.experiencia-card {
+  background: #F6DCE0 !important;
+}
+
+
+/* =========================================================
+   EXPERIENCIA — TARJETAS CON EL FONDO DEL MÓDULO
+   ========================================================= */
+
+.experiencia-card {
+  background: #F6DCE0 !important;
+}
+
+
+/* =========================================================
+   EXPERIENCIA — CAMPOS DE MESES CON EL MISMO FONDO
+   ========================================================= */
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-text-field-wrapper {
+  background: #F6DCE0 !important;
+}
+
+
+/* =========================================================
+   CAJAS DE MESES — FONDO DE LA PÁGINA
+   ========================================================= */
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-text-field-wrapper {
+  background: var(--agora-background) !important;
+}
+
+
+/* =========================================================
+   EXPERIENCIA — ROSA MÁS CLARO
+   ========================================================= */
+
+.experiencia-contractual {
+  background: #F9E7E9 !important;
+}
+
+.experiencia-card {
+  background: #F9E7E9 !important;
+}
+
+
+/* =========================================================
+   SEPARACIÓN VISUAL DE LAS TARJETAS DE EXPERIENCIA
+   ========================================================= */
+
+.experiencia-card {
+  border: 1px solid rgba(105, 16, 27, 0.10);
+  box-shadow: 0 1px 3px rgba(105, 16, 27, 0.06);
+}
+
+
+/* =========================================================
+   EXPERIENCIA — PALETA DEFINITIVA
+   ========================================================= */
+
+.experiencia-contractual {
+  background: var(--agora-surface) !important;
+}
+
+.experiencia-card {
+  background: #F9E7E9 !important;
+}
+
+:host ::ng-deep .experiencia-card__field .mat-mdc-text-field-wrapper {
+  background: var(--agora-background) !important;
+}
+
+
+
+/* =========================================================
+   CARACTERIZACIÓN — ALINEACIÓN DE TEXTO EN SELECTS
+   ========================================================= */
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text {
+  display: inline-block;
+  transform: translateX(5px);
+}
+
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text {
+  transform: translateX(8px);
+}
+
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text {
+  transform: translateX(10px);
+}
+
+
+/* =========================================================
+   CARACTERIZACIÓN — MISMO FORMATO QUE SELECTS NATIVOS
+   ========================================================= */
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text {
+  display: inline-block;
+  transform: none !important;
+
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: var(--agora-text) !important;
+}
+
+
+/* =========================================================
+   CARACTERIZACIÓN — FORMATO FINAL DE VALORES
+   ========================================================= */
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text {
+  display: inline-block;
+  transform: none !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}\n
+/* =========================================================
+   INDICADOR DE CAMPOS OBLIGATORIOS
+   ========================================================= */
+
+.required {
+  color: #D32F2F !important;
+  font-weight: 700;
+}
+
+:host ::ng-deep .mat-mdc-form-field-required-marker {
+  color: #D32F2F !important;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ASTERISCOS OBLIGATORIOS — ROJO PURO
+   ========================================================= */
+
+:host ::ng-deep .material-field__label .required,
+:host ::ng-deep .required,
+:host ::ng-deep .mat-mdc-form-field-required-marker {
+  color: #B4232F !important;
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   INFORMACIÓN TRIBUTARIA
+   ========================================================= */
+
+.tributario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+:host ::ng-deep .tributario-card {
+  width: 100%;
+  margin: 0;
+
+  --mdc-outlined-text-field-container-color: #F9E7E9;
+  --mdc-outlined-text-field-outline-color: transparent;
+  --mdc-outlined-text-field-hover-outline-color: transparent;
+  --mdc-outlined-text-field-focus-outline-color: transparent;
+}
+
+:host ::ng-deep .tributario-card .mat-mdc-text-field-wrapper {
+  background: #F9E7E9 !important;
+  border-radius: 10px !important;
+  padding: 8px 14px 6px !important;
+}
+
+:host ::ng-deep .tributario-card .mdc-notched-outline {
+  display: none !important;
+}
+
+:host ::ng-deep .tributario-card .mat-mdc-form-field-infix {
+  min-height: 46px !important;
+  padding: 8px 0 !important;
+}
+
+:host ::ng-deep .tributario-card .mat-mdc-form-field-flex {
+  align-items: center;
+}
+
+:host ::ng-deep .tributario-card .mat-mdc-floating-label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .tributario-card .mat-mdc-select-value-text {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+  transform: none !important;
+}
+
+:host ::ng-deep .tributario-card .mat-mdc-select-arrow {
+  color: var(--agora-text) !important;
+}
+
+@media (max-width: 900px) {
+  .tributario-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .tributario-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   TRIBUTARIA — MISMO FORMATO VISUAL QUE EXPERIENCIA
+   ========================================================= */
+
+.tributario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tributario-card {
+  min-width: 0;
+  padding: 16px 18px 14px;
+  border-radius: 10px;
+  background: #F9E7E9 !important;
+}
+
+.tributario-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.tributario-card__label {
+  margin: 0;
+  color: var(--agora-text);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tributario-card__label .required {
+  color: #B4232F !important;
+  font-weight: 700 !important;
+}
+
+.tributario-card__field {
+  width: 100%;
+  margin: 0;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+  min-height: 40px !important;
+  border-radius: 6px !important;
+  background: var(--agora-background) !important;
+}
+
+:host ::ng-deep .tributario-card__field .mdc-notched-outline,
+:host ::ng-deep .tributario-card__field .mdc-notched-outline__leading,
+:host ::ng-deep .tributario-card__field .mdc-notched-outline__notch,
+:host ::ng-deep .tributario-card__field .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-infix {
+  min-height: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-value-text {
+  display: inline-block;
+  transform: none !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-arrow {
+  color: var(--agora-text) !important;
+}
+
+@media (max-width: 900px) {
+  .tributario-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .tributario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tributario-card {
+    padding: 16px;
+  }
+}
+
+
+/* =========================================================
+   CARACTERIZACIÓN — SEPARACIÓN INTERNA DEL VALOR DEL SELECT
+   ========================================================= */
+
+:host ::ng-deep .caracterizacion-grid .mat-mdc-select-value-text {
+  padding-left: 14px !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — SEPARACIÓN VISUAL DE MÓDULOS
+   ========================================================= */
+
+.tributario-card {
+  border: 1px solid rgba(105, 16, 27, 0.10);
+  box-shadow: 0 1px 3px rgba(105, 16, 27, 0.06);
+}
+
+
+/* =========================================================
+   TRIBUTARIA — REDUCCIÓN DE ALTURA
+   ========================================================= */
+
+.tributario-card {
+  padding: 12px 18px 10px;
+}
+
+.tributario-card__header {
+  margin-bottom: 6px;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  height: 36px !important;
+  min-height: 36px !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-infix {
+  min-height: 36px !important;
+  padding-top: 4px !important;
+  padding-bottom: 3px !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — CENTRADO DE TARJETAS
+   ========================================================= */
+
+.tributario-card {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — AJUSTE VERTICAL DEL BLOQUE
+   ========================================================= */
+
+.tributario-grid {
+  position: relative;
+  top: 8px;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN DE LAS TARJETAS
+   ========================================================= */
+
+.tributario-grid {
+  top: 0;
+}
+
+.tributario-card {
+  position: relative;
+  top: 6px;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — BAJAR TARJETAS SÍ/NO
+   ========================================================= */
+
+.tributario-card {
+  position: relative;
+  top: 0;
+  transform: translateY(18px);
+}
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN FINAL DE TARJETAS
+   ========================================================= */
+
+.tributario-card {
+  position: relative;
+  top: auto;
+  transform: none !important;
+  margin-top: 12px;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — FORMATO DE "SELECCIONE..."
+   ========================================================= */
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-value-text,
+:host ::ng-deep .tributario-card__field .mat-mdc-select-placeholder {
+  display: inline-block;
+  transform: none !important;
+  padding-left: 14px !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN DEL SELECT DENTRO DE LA TARJETA
+   ========================================================= */
+
+.tributario-card__field {
+  position: relative;
+  top: 6px;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — CENTRADO VERTICAL DEL SELECT
+   ========================================================= */
+
+.tributario-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: stretch;
+  min-height: 104px;
+}
+
+.tributario-card__header {
+  margin-bottom: 0;
+}
+
+.tributario-card__field {
+  align-self: center;
+  width: 100%;
+  height: 40px !important;
+  margin: 0 !important;
+  top: 0 !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+  min-height: 40px !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-infix {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN REAL DEL BLOQUE DE TARJETAS
+   ========================================================= */
+
+.tributario-grid {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+  position: static !important;
+  transform: none !important;
+}
+
+.tributario-card {
+  margin-top: 0 !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — BAJAR VISUALMENTE LAS 6 TARJETAS
+   ========================================================= */
+
+.tributario-grid > .tributario-card {
+  transform: translateY(20px) !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN REAL DE LA CAJA DEL SELECT
+   ========================================================= */
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  position: relative !important;
+  top: 8px !important;
+}
+
+
+/* =========================================================
+   DEBUG TEMPORAL — IDENTIFICAR ESTRUCTURA DEL SELECT
+   ========================================================= */
+
+.tributario-card {
+  outline: 4px solid blue !important;
+}
+
+.tributario-card__field {
+  outline: 4px solid red !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  outline: 4px solid lime !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-flex {
+  outline: 4px solid orange !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-infix {
+  outline: 4px solid magenta !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select {
+  outline: 4px solid cyan !important;
+}
+
+
+/* =========================================================
+   DEBUG — PRUEBA REAL DE POSICIÓN DE LA CAJA DEL SELECT
+   ========================================================= */
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  transform: translateY(30px) !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — LIMPIEZA DEL DEBUG Y POSICIÓN DEFINITIVA
+   ========================================================= */
+
+.tributario-card,
+.tributario-card__field {
+  outline: none !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  outline: none !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-flex {
+  outline: none !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-form-field-infix {
+  outline: none !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select {
+  outline: none !important;
+}
+
+/* La prueba de 30px se reemplaza por el ajuste visual real */
+:host ::ng-deep .tributario-card__field .mat-mdc-text-field-wrapper {
+  transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — CENTRADO VERTICAL DEL TEXTO DEL SELECT
+   ========================================================= */
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-trigger {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-value {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-value-text {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  padding-left: 14px !important;
+  transform: none !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+
+
+/* =========================================================
+   TRIBUTARIA — AJUSTE FINO DEL TEXTO DEL SELECT
+   ========================================================= */
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-value-text {
+  position: relative !important;
+  top: -2px !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — ALINEACIÓN DE LA FLECHA DEL SELECT
+   ========================================================= */
+
+:host ::ng-deep .tributario-card__field .mat-mdc-select-arrow-wrapper {
+  position: relative !important;
+  top: -6px !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN DEFINITIVA DE TEXTO Y FLECHA
+   ========================================================= */
+
+:host ::ng-deep mat-form-field.tributario-card__field
+  .mat-mdc-select
+  .mat-mdc-select-placeholder {
+  position: relative !important;
+  transform: translateY(-6px) !important;
+}
+
+:host ::ng-deep mat-form-field.tributario-card__field
+  .mat-mdc-select-arrow-wrapper {
+  position: relative !important;
+  transform: translateY(-6px) !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — POSICIÓN DEFINITIVA DE TEXTO Y FLECHA
+   ========================================================= */
+
+:host ::ng-deep mat-form-field.tributario-card__field
+  .mat-mdc-select
+  .mat-mdc-select-placeholder {
+  position: relative !important;
+  transform: translateY(-6px) !important;
+}
+
+:host ::ng-deep mat-form-field.tributario-card__field
+  .mat-mdc-select-arrow-wrapper {
+  position: relative !important;
+  transform: translateY(-6px) !important;
+}
+
+
+/* =========================================================
+   TRIBUTARIA — ELIMINAR DESPLAZAMIENTOS ACUMULADOS
+   ========================================================= */
+
+.tributario-grid {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.tributario-grid > .tributario-card {
+  margin-top: 0 !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+
+/* =========================================================
+   SECCIÓN 4 — CONTACTO Y RESIDENCIA FISCAL
+   ========================================================= */
+
+.residencia-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------------------------------------------------------
+   UBICACIÓN DE RESIDENCIA
+   --------------------------------------------------------- */
+
+.residencia-contacto__ubicacion > div.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.residencia-contacto__ubicacion .field {
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------
+   CAMPOS — MISMO LENGUAJE VISUAL DEL FORMULARIO
+   --------------------------------------------------------- */
+
+.residencia-contacto .field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.residencia-contacto .field mat-label {
+  color: var(--agora-text) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+/* ---------------------------------------------------------
+   CONSTRUCTOR DE DIRECCIÓN DIAN
+   --------------------------------------------------------- */
+
+.residencia-contacto .address-builder {
+  grid-column: 1 / -1;
+
+  margin-top: 0;
+  padding: 16px 18px;
+
+  border: 1px solid rgba(105, 16, 27, 0.10);
+  border-radius: 10px;
+
+  background: #F9E7E9;
+  box-shadow: 0 1px 3px rgba(105, 16, 27, 0.06);
+}
+
+.residencia-contacto .address-builder__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.residencia-contacto .address-builder__header mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  color: var(--agora-primary);
+}
+
+.residencia-contacto .address-builder__header h3 {
+  margin: 0 0 2px;
+
+  color: var(--agora-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.residencia-contacto .address-builder__header p {
+  margin: 0;
+
+  color: var(--agora-text-muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.residencia-contacto .address-builder > .form-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(0, 0.7fr)
+    minmax(0, 1fr)
+    minmax(0, 0.45fr)
+    minmax(0, 1fr)
+    minmax(0, 0.9fr);
+  gap: 12px;
+}
+
+.residencia-contacto .address-builder .field {
+  min-width: 0;
+}
+
+.residencia-contacto .address-builder .field--small {
+  max-width: none;
+}
+
+/* ---------------------------------------------------------
+   CAMPOS MATERIAL DEL CONSTRUCTOR
+   --------------------------------------------------------- */
+
+:host ::ng-deep .residencia-contacto
+  .address-builder
+  .mat-mdc-text-field-wrapper {
+  min-height: 40px !important;
+  height: 40px !important;
+  border-radius: 6px !important;
+  background: var(--agora-background) !important;
+}
+
+:host ::ng-deep .residencia-contacto
+  .address-builder
+  .mat-mdc-form-field-infix {
+  min-height: 40px !important;
+  height: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .residencia-contacto
+  .address-builder
+  .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+/* ---------------------------------------------------------
+   EJEMPLO / DIRECCIÓN GENERADA
+   --------------------------------------------------------- */
+
+.residencia-contacto .address-builder__example {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 12px;
+  padding: 10px 12px;
+
+  border: 1px solid rgba(39, 116, 67, 0.15);
+  border-left: 3px solid #277443;
+  border-radius: 6px;
+
+  background: #fff;
+}
+
+.residencia-contacto .address-builder__example mat-icon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  color: #277443;
+}
+
+.residencia-contacto .address-builder__example span {
+  color: var(--agora-text-muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.residencia-contacto .address-builder__example strong {
+  color: var(--agora-text);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   CONTACTO — 4 COLUMNAS
+   --------------------------------------------------------- */
+
+.residencia-contacto__contacto > div.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.residencia-contacto__contacto .field {
+  min-width: 0;
+}
+
+.residencia-contacto__contacto mat-form-field {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   ASTERISCOS
+   --------------------------------------------------------- */
+
+.residencia-contacto .required,
+.residencia-contacto .mat-mdc-form-field-required-marker {
+  color: #B4232F !important;
+  font-weight: 700 !important;
+}
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .residencia-contacto__ubicacion > div.form-grid,
+  .residencia-contacto__contacto > div.form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .residencia-contacto .address-builder > .form-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+}
+
+/* ---------------------------------------------------------
+   MÓVIL
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  .residencia-contacto {
+    gap: 18px;
+  }
+
+  .residencia-contacto__ubicacion > div.form-grid,
+  .residencia-contacto__contacto > div.form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .residencia-contacto .address-builder {
+    padding: 14px;
+  }
+
+  .residencia-contacto .address-builder > .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   RESIDENCIA — CAMPOS SUPERIORES
+   ========================================================= */
+
+.residencia-contacto__campo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.residencia-contacto__label {
+  display: block;
+  margin: 0 0 7px;
+
+  color: var(--agora-text);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.residencia-contacto__label .required {
+  color: #B4232F !important;
+  font-weight: 700 !important;
+}
+
+.residencia-contacto__field {
+  width: 100%;
+  margin: 0 !important;
+}
+
+:host ::ng-deep .residencia-contacto__field .mat-mdc-text-field-wrapper {
+  min-height: 40px !important;
+  height: 40px !important;
+  border-radius: 6px !important;
+  background: var(--agora-background) !important;
+}
+
+:host ::ng-deep .residencia-contacto__field .mdc-notched-outline {
+  border-color: transparent !important;
+}
+
+:host ::ng-deep .residencia-contacto__field .mat-mdc-form-field-infix {
+  min-height: 40px !important;
+  height: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .residencia-contacto__field .mat-mdc-select-value-text,
+:host ::ng-deep .residencia-contacto__field .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .residencia-contacto__field .mat-mdc-select-value-text {
+  padding-left: 14px !important;
+  transform: none !important;
+}
+
+
+/* =========================================================
+   GENERADOR DIAN — AJUSTE VISUAL
+   ========================================================= */
+
+.residencia-contacto .address-builder {
+  position: relative;
+  margin-top: 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(105, 16, 27, 0.10);
+  border-radius: 10px;
+  background: #F9E7E9;
+  box-shadow: 0 1px 3px rgba(105, 16, 27, 0.06);
+}
+
+.residencia-contacto .address-builder__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.residencia-contacto .address-builder__header mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  color: var(--agora-primary);
+}
+
+.residencia-contacto .address-builder__header h3 {
+  margin: 0 0 2px;
+  color: var(--agora-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.residencia-contacto .address-builder__header p {
+  margin: 0;
+  color: var(--agora-text-muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.residencia-contacto .address-builder__norma {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #F1D4D6;
+  color: var(--agora-primary);
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.residencia-contacto .address-builder > .form-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(0, 1fr)
+    minmax(0, 0.45fr)
+    minmax(0, 1fr)
+    minmax(0, 0.45fr)
+    minmax(0, 1fr)
+    minmax(0, 0.85fr)
+    minmax(0, 0.9fr);
+  gap: 12px;
+}
+
+.residencia-contacto .address-builder .field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep .residencia-contacto .address-builder .mat-mdc-form-field {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding-top: 15px;
+}
+
+:host ::ng-deep .residencia-contacto .address-builder .mat-mdc-floating-label {
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--agora-text) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+:host ::ng-deep .residencia-contacto .address-builder .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+  min-height: 40px !important;
+  margin-top: 2px;
+  border-radius: 6px !important;
+  background: var(--agora-background) !important;
+}
+
+:host ::ng-deep .residencia-contacto .address-builder .mat-mdc-form-field-infix {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .residencia-contacto .address-builder .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .residencia-contacto .address-builder .mdc-notched-outline,
+:host ::ng-deep .residencia-contacto .address-builder .mdc-notched-outline__leading,
+:host ::ng-deep .residencia-contacto .address-builder .mdc-notched-outline__notch,
+:host ::ng-deep .residencia-contacto .address-builder .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+/* Separadores # y - */
+.address-static-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.address-static-field__label {
+  margin-bottom: 7px;
+  color: var(--agora-text);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.address-static-field__label .required {
+  color: #B4232F !important;
+}
+
+.address-static-field__value {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--agora-background);
+  color: var(--agora-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Resultado */
+.residencia-contacto .address-builder__example {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(39, 116, 67, 0.15);
+  border-left: 3px solid #277443;
+  border-radius: 6px;
+  background: var(--agora-background);
+}
+
+.residencia-contacto .address-builder__generated-label {
+  color: var(--agora-text);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.residencia-contacto .address-builder__generated-value {
+  color: var(--agora-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.residencia-contacto .address-builder__validated {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #EAF6EE;
+  color: #277443;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.residencia-contacto .address-builder__validated mat-icon {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  color: #277443;
+}
+
+@media (max-width: 900px) {
+  .residencia-contacto .address-builder > .form-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .residencia-contacto .address-builder {
+    padding: 14px;
+  }
+
+  .residencia-contacto .address-builder > .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .residencia-contacto .address-builder__norma {
+    display: none;
+  }
+
+  .residencia-contacto .address-builder__example {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .residencia-contacto .address-builder__validated {
+    margin-left: 0;
+  }
+}
+
+
+/* =========================================================
+   DIAN — NORMA TÉCNICA ALINEADA AL ENCABEZADO
+   ========================================================= */
+
+.residencia-contacto .address-builder__header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.residencia-contacto .address-builder__header > div {
+  min-width: 0;
+}
+
+.residencia-contacto .address-builder__norma {
+  margin-left: auto;
+  margin-top: 2px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+
+  color: var(--agora-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESIDENCIA — SELECT DE DEPARTAMENTO
+   ========================================================= */
+
+:host ::ng-deep .residencia-contacto__field .mat-mdc-select-placeholder,
+:host ::ng-deep .residencia-contacto__field .mat-mdc-select-value-text {
+  display: inline-block;
+  padding-left: 14px !important;
+  transform: none !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+
+
+
+/* =========================================================
+   DIAN — NORMA TÉCNICA EN LA ESQUINA SUPERIOR DERECHA
+   ========================================================= */
+
+.residencia-contacto .address-builder__header {
+  position: relative;
+  padding-right: 190px;
+}
+
+.residencia-contacto .address-builder__norma {
+  position: absolute;
+  top: 2px;
+  right: 0;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  color: var(--agora-text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .residencia-contacto .address-builder__header {
+    padding-right: 0;
+  }
+
+  .residencia-contacto .address-builder__norma {
+    position: static;
+    display: block;
+    margin-top: 4px;
+  }
+}
+
+
+/* =========================================================
+   RESIDENCIA — TEXTO DE CIUDAD / MUNICIPIO
+   ========================================================= */
+
+.residencia-contacto__ubicacion
+  .residencia-contacto__campo:nth-child(2)
+  .mat-mdc-input-element {
+  text-indent: 8px !important;
+}
+
+
+/* =========================================================
+   CONTACTO — FORMATO VISUAL DEL MOCKUP
+   ========================================================= */
+
+.residencia-contacto__contacto {
+  margin-top: 4px;
+}
+
+
+
+/* 4 columnas x 2 filas */
+.residencia-contacto__contacto > div.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.residencia-contacto__contacto .field {
+  position: relative;
+  min-width: 0;
+}
+
+/* Label externo */
+:host ::ng-deep .residencia-contacto__contacto .mat-mdc-form-field {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  padding-top: 15px;
+}
+
+:host ::ng-deep .residencia-contacto__contacto .mat-mdc-floating-label {
+  top: 0 !important;
+  left: 0 !important;
+
+  transform: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: var(--agora-text) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+}
+
+/* Caja del campo */
+:host ::ng-deep .residencia-contacto__contacto .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+  min-height: 40px !important;
+
+  margin-top: 2px;
+
+  border-radius: 6px !important;
+  background: var(--agora-background) !important;
+}
+
+:host ::ng-deep .residencia-contacto__contacto .mat-mdc-form-field-infix {
+  height: 40px !important;
+  min-height: 40px !important;
+
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .residencia-contacto__contacto .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .residencia-contacto__contacto .mdc-notched-outline,
+:host ::ng-deep .residencia-contacto__contacto .mdc-notched-outline__leading,
+:host ::ng-deep .residencia-contacto__contacto .mdc-notched-outline__notch,
+:host ::ng-deep .residencia-contacto__contacto .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+/* Asteriscos */
+.residencia-contacto__contacto .mat-mdc-form-field-required-marker {
+  color: #B4232F !important;
+}
+
+/* Errores */
+:host ::ng-deep .residencia-contacto__contacto .mat-mdc-form-field-subscript-wrapper {
+  min-height: 0;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .residencia-contacto__contacto > div.form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Móvil */
+@media (max-width: 700px) {
+  .residencia-contacto__contacto > div.form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   CONTACTO — ETIQUETAS EXTERNAS
+   ========================================================= */
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contacto-campo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contacto-campo__label {
+  display: block;
+  margin: 0 0 7px;
+
+  color: var(--agora-text);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.contacto-campo__label .required {
+  color: #B4232F !important;
+  font-weight: 700 !important;
+}
+
+.contacto-campo__field {
+  width: 100%;
+  margin: 0 !important;
+}
+
+:host ::ng-deep .contacto-campo__field .mat-mdc-text-field-wrapper {
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+
+  border-radius: 6px !important;
+  background: var(--agora-background) !important;
+}
+
+:host ::ng-deep .contacto-campo__field .mat-mdc-form-field-infix {
+  height: 40px !important;
+  min-height: 40px !important;
+
+  padding-top: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+:host ::ng-deep .contacto-campo__field .mat-mdc-input-element {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--agora-text) !important;
+}
+
+:host ::ng-deep .contacto-campo__field .mdc-notched-outline,
+:host ::ng-deep .contacto-campo__field .mdc-notched-outline__leading,
+:host ::ng-deep .contacto-campo__field .mdc-notched-outline__notch,
+:host ::ng-deep .contacto-campo__field .mdc-notched-outline__trailing {
+  border-color: transparent !important;
+}
+
+@media (max-width: 900px) {
+  .contacto-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* =========================================================
+   CONTACTO — CABECERA CON ICONO
+   ========================================================= */
+
+.contacto-seccion-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 4px 0 14px;
+  color: var(--agora-primary);
+}
+
+.contacto-seccion-header mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  line-height: 18px;
+  color: var(--agora-primary);
+}
+
+.contacto-seccion-header h3 {
+  margin: 0;
+
+  color: var(--agora-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+/* DIAN — ESTRUCTURA FINAL DEL GENERADOR */
+
+.residencia-contacto .address-builder > .form-grid {
+  display: grid;
+  grid-template-columns:
+    1.05fr 1.05fr 0.55fr 1.05fr
+    0.55fr 1.05fr 1fr 1.15fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.residencia-contacto .address-builder__campo {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.residencia-contacto .address-builder__field-label {
+  display: block;
+  margin: 0 0 3px;
+  padding: 0;
+  color: var(--agora-text);
+  font-size: 11.5px;
+  line-height: 1.2;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.residencia-contacto .address-builder__field-label .required {
+  color: #B4232F !important;
+  font-weight: 700;
+}
+
+/* Campos Material: misma altura visual que # y - */
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-text-field-wrapper {
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+}
+
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-form-field-flex {
+  height: 36px !important;
+  min-height: 36px !important;
+}
+
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-form-field-infix {
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-input-element {
+  height: 20px !important;
+  min-height: 20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 20px !important;
+}
+
+.residencia-contacto .address-builder__campo .field {
+  width: 100%;
+  margin: 0;
+}
+
+/* Campos estáticos # y - */
+.residencia-contacto .address-static-field__value {
+  width: 100%;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-radius: 6px;
+  background: var(--agora-background);
+  color: var(--agora-text);
+  font-size: 13px;
+  font-weight: 700;
+  transform: translateY(17px) !important;
+}
+
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-input-element {
+  font-size: 13px;
+}
+
+.residencia-contacto
+  .address-builder__campo:last-child
+  .mat-mdc-input-element {
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .residencia-contacto .address-builder > .form-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .residencia-contacto .address-builder > .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .residencia-contacto .address-builder__field-label {
+    white-space: normal;
+  }
+
+  .residencia-contacto .address-static-field__value {
+    transform: none !important;
+  }
+}
+
+/* DIAN — AJUSTE FINAL DE ALINEACIÓN Y FOCO */
+
+/* Acercar los controles a sus etiquetas */
+.residencia-contacto .address-builder__campo .field {
+  margin-top: -12px !important;
+}
+
+/* Mantener los campos estáticos (# y -) alineados con los controles */
+.residencia-contacto .address-static-field__value {
+  transform: translateY(5px) !important;
+}
+
+/* Eliminar el contorno adicional que aparece al enfocar un campo */
+.residencia-contacto .address-builder__campo .mat-mdc-text-field-wrapper,
+.residencia-contacto .address-builder__campo .mat-mdc-text-field-wrapper:focus,
+.residencia-contacto .address-builder__campo .mat-mdc-text-field-wrapper:focus-within {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* El overlay de foco de Angular Material no debe generar una segunda capa */
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-form-field-focus-overlay {
+  opacity: 0 !important;
+}
+
+/* El input tampoco debe agregar un outline propio */
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-input-element:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 700px) {
+  .residencia-contacto .address-builder__campo .field {
+    margin-top: 0 !important;
+  }
+
+  .residencia-contacto .address-static-field__value {
+    transform: none !important;
+  }
+}
+
+/* DIAN — mensaje de validación compacto */
+.residencia-contacto
+  .address-builder__campo
+  .mat-mdc-form-field-error {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  margin-top: 2px !important;
+}
+/* Ajuste de ancho para igualar el comportamiento del Paso 2 */
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   CONTENEDOR DEL BANNER PASO 1
+   Mismo ancho visual que las tarjetas inferiores
+   ========================================================= */
+
+.paso-1-ancho-contenido {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.paso-1-ancho-contenido .step-banner {
+  width: min(calc(100% - 3rem), 86.25rem);
+  margin: 0 auto 1.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 40rem) {
+  .paso-1-ancho-contenido {
+    width: 100%;
+  }
+
+  .paso-1-ancho-contenido .step-banner {
+    width: calc(100% - 1.5rem);
+  }
+}
+
+/* =========================================================
+   TÍTULOS DE TARJETAS — FORMATO INSTITUCIONAL
+   ========================================================= */
+
+:host ::ng-deep plantilla-tarjeta-contenedora .titulo {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--agora-primary-dark);
+}
