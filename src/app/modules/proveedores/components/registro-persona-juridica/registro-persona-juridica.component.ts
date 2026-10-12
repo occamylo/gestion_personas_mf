@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { PasoStepperVisual } from "src/app/shared/components/stepper-visual/stepper-visual.component";
 import { camposPorPaso } from "./registro-persona-juridica.component.utils";
 import { PersonaJuridicaCatalogosPayload } from "./models/registro-persona-juridica-payload.model";
@@ -56,6 +57,12 @@ export class RegistroPersonaJuridicaComponent implements OnInit {
         console.log(`Valor del control ${controlName} cambiado a:`, value);
       });
     }
+  }
+
+  constructor(private readonly router: Router) {}
+
+  regresarARegistroInicial(): void {
+    void this.router.navigateByUrl("/proveedores");
   }
 
   pasos: PasoStepperVisual[] = [
