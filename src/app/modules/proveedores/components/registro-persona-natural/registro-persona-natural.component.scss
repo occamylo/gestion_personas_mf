@@ -1,3 +1,7 @@
+@use 'src/app/shared/styles/registro-formulario' as registro-formulario;
+
+@include registro-formulario.entrada('.contenido-pasos > *');
+
 .persona-natural-page {
   min-height: 100vh;
   background: var(--agora-background);
