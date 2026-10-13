@@ -1,4 +1,5 @@
 @use 'src/app/shared/styles/registro-formulario' as registro-formulario;
+@use 'src/app/shared/styles/tokens' as t;
 
 @include registro-formulario.entrada('.contenido-pasos > *');
 
@@ -1781,8 +1782,6 @@ plantilla-pagina-contenedora.persona-natural-pagina {
 }
 
 
-
-@use 'src/app/shared/styles/tokens' as t;
 
 /* =========================================================
    ANCHO DEL CONTENIDO DEL FORMULARIO
